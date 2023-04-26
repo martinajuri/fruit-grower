@@ -3,15 +3,16 @@
 
 using namespace std;
 
-template <class T>
+
 
 //Representa una fruta en general, con sus propiedades como el tipo de fruta, el peso y el identificador de cajón.
 class Fruit {
     
     public:
-        Fruit(type); // generator
+        Fruit(FruitType type); // generator
     
     private:
         FruitType type; // kind of fruit
+        
 
 };

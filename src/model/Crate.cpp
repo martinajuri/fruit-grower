@@ -3,17 +3,19 @@
 
 using namespace std;
 
-template <class T>
+
 class Crate{
 
     public:
-        FruitCrate(); //generator
-        addFruit();
-        deleteFruit()
+        Crate(string id, FruitType type, int fruitAmount); //generator
+        void addFruit(){};
+        void deleteFruit(){};
+        bool isEmpty(){};
+        bool hasCapacity(){};
 
     private:
-        Id id;
+        string id;
         FruitType type;
         int fruitAmount;
-        int maxWeight = 20;
+        int maxWeight;
 };
