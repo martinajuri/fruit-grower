@@ -1,0 +1,1 @@
+//Representa un pedido en general, con sus propiedades como el nombre del cliente, el tipo de pedido (mayorista o minorista), el tipo de fruta y la cantidad de frutas solicitadas.

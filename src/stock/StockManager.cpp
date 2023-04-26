@@ -1,0 +1,1 @@
+// Representa el gestor del stock del depósito, con métodos para actualizar el stock según el peso de las frutas recolectadas, así como para consultar y entregar los pedidos pendientes.
