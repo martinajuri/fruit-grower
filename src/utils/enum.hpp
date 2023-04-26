@@ -1,5 +1,5 @@
-enum FruitTypes{
-    apple,
-    banana,
-    orange
+enum FruitType{
+    APPLE,
+    BANANA,
+    ORANGE
 };

@@ -13,7 +13,7 @@ class Crate{
 
     private:
         Id id;
-        FruitTypes type;
+        FruitType type;
         int fruitAmount;
         int maxWeight = 20;
 };

@@ -12,6 +12,6 @@ class Fruit {
         Fruit(type); // generator
     
     private:
-        FruitTypes type; // kind of fruit
+        FruitType type; // kind of fruit
 
 };
