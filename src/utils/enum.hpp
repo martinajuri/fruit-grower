@@ -3,3 +3,8 @@ enum FruitType{
     BANANA,
     ORANGE
 };
+enum Status{
+    READY,
+    IN_PROGRESS,
+    FINISHED
+};
