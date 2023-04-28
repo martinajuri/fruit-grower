@@ -1,1 +1,0 @@
-//Representa un elemento de stock en general, con propiedades como el tipo de fruta, la cantidad de frutas disponibles y los pedidos pendientes.
