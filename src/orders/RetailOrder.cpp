@@ -9,8 +9,13 @@ using namespace std;
 
 class RetailOrder : public Order{
     public:
-        RetailOrder(Client client, FruitType type, int amount);
-
     
+        RetailOrder(int amount, Client client, FruitType type): Order(client, type){weight=amount;};
+        int getAmount(){return weight;};
+
+
+    private:
+        int weight;
+        
 
 };

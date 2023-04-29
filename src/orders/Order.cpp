@@ -8,26 +8,21 @@ using namespace std;
 
 class Order{
     public:
-        Order();
+        // generator & destructor
+        Order(Client client, FruitType type){this->client=client ; this->type=type; this->status=Status::READY;};
         ~Order();
+
+        //getters
         Client getClient(){return client;};
         FruitType getFruitType(){return type;};
-        int getAmount(){return amount;};
         Status getStatus(){return status;};
+
+        //setters
         void setStatus(Status newStatus){status=newStatus;};
 
     private:
         Client client;
         FruitType type;
-        int amount;
         Status status;
-
-    Order(Client client, FruitType type, int amount){
-    this->client=client ; 
-    this->type=type; 
-    this->amount=amount;
-    this->status=Status::READY;
-    };
-
     
 };

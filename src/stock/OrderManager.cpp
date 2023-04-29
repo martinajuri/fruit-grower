@@ -1,1 +1,10 @@
-// Representa el gestor del stock del depósito, con métodos para actualizar el stock según el peso de las frutas recolectadas, así como para consultar y entregar los pedidos pendientes.
+// Representa el gestor pedidos para consultar y entregar los pedidos pendientes.
+#include <iostream>
+#include "../orders/WholesaleOrder.cpp"
+#include "../orders/RetailOrder.cpp"
+#include "../model/Client.cpp"
+#include "../utils/enum.hpp"
+
+class OrderManager{
+
+};
