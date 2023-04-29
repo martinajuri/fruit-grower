@@ -10,12 +10,12 @@ using namespace std;
 class RetailOrder : public Order{
     public:
     
-        RetailOrder(int amount, Client client, FruitType type): Order(client, type){weight=amount;};
+        RetailOrder(float weight, Client client, FruitType type): Order(client, type){this->weight=weight;};
         int getAmount(){return weight;};
 
 
     private:
-        int weight;
+        float weight;
         
 
 };

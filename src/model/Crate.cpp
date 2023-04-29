@@ -11,8 +11,8 @@ class Crate{
     private:
         string id;
         FruitType type;
-        int fruitAmount = 20;
-        int maxWeight = 20;
+        int fruitAmount = 20.0;
+        int maxWeight = 20.0;
 
         void setFruitAmount(int n){fruitAmount=n;};
 

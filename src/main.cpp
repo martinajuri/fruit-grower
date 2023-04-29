@@ -11,7 +11,7 @@ int main( int argc, char *argv[])
    Client *client2 = new Client();
 
    Crate *crate1 = new Crate("crate1", FruitType::APPLE);
-   Crate *crate2 = new Crate("crate1", FruitType::BANANA);
+   Crate *crate2 = new Crate("crate2", FruitType::BANANA);
 
     cout << client1->toString() << " "<< crate1->toString()<< endl;
     cout << client2->toString() << " "<< crate2->toString()<< endl;
