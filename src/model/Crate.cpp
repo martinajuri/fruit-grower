@@ -11,8 +11,8 @@ class Crate{
     private:
         string id;
         FruitType type;
-        float fruitAmount = 0.0;
-        float maxWeight = 20.0;
+        float fruitAmount = 0.0f;
+        float maxWeight = 20.0f;
 
         void setFruitAmount(int n){fruitAmount=n;};
 
@@ -27,37 +27,33 @@ class Crate{
         FruitType getType(){return type;};
         float getFruitAmount(){return fruitAmount;};
 
-        //setters
-        void add(int n){setFruitAmount(getFruitAmount()+n);};
-        void deleteF(int n){setFruitAmount(getFruitAmount()-n);};
-
         //check capacity
-        bool isEmpty(){return (getFruitAmount()==0);};
-        bool hasCapacity(){return (capacity()>0);};
-        float capacity(){return maxWeight - fruitAmount;}
+        bool isEmpty(){return (getFruitAmount()==0);}; // devuelve true si la cantidad de fruta es 0
+        bool hasCapacity(){return (capacity()>0);}; // devuelve true si la capacidad es mayor a 0
+        float capacity(){return maxWeight - fruitAmount;} // devuelve la cantidad de fruta que puede ser agregada
     
 
         //to string
-        string toString(){return "Cajon " + id + ": " +  to_string(fruitAmount) + " " + fruitTypeToString(type);}
+        string toString(){return "Cajon " + id + ": " +  to_string(getFruitAmount()) + " " + fruitTypeToString(type);}
 
-    // add fruit to crate
-    void addFruit(float n) {
-        if (fruitAmount + n <= maxWeight) { // Si no se supera el maximo peso soportado
-            add(n); // Se suma la cantidad de fruta al cajon
+        // add fruit to crate
+        void addFruit(float n) {
+            if (capacity()>= n) { // Si hay capacidad mayor o igual a la cantidad que se quiere agregar
+            setFruitAmount(getFruitAmount()+n); // Se suma la cantidad de fruta al cajon
+            }
+            else { // Si se supera el maximo peso soportado
+                cout << "No se puede agregar mas fruta al cajon " << id << endl; // mensaje de error
+            }
         }
-        else { // Si se supera el maximo peso soportado
-            cout << "No se puede agregar mas fruta al cajon " << id << endl; // Se muestra un mensaje de error
-        }
-    }
 
-    // take fruit out of the crate
-    void deleteFruit(float n) {
-        if (fruitAmount - n >= 0) { // Si no se queda con cantidad negativa
-            deleteF(n); // Se resta la cantidad de fruta al cajon
+        // take fruit out of the crate
+        void deleteFruit(float n) {
+            if (getFruitAmount()>n) { // Si hay mas cantidad de la que se quiere sacar
+            setFruitAmount(getFruitAmount()-n); // Se resta la cantidad de fruta al cajon
+            }
+            else { 
+                cout << "No se puede quitar mas fruta del cajon " << id << endl; // mensaje de error
+            }
         }
-        else { // Si se queda con cantidad negativa
-            cout << "No se puede quitar mas fruta del cajon " << id << endl; // Se muestra un mensaje de error
-        }
-    }
 
 };

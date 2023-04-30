@@ -19,16 +19,16 @@ string fruitTypeToString(FruitType f) {
 #ifndef STATUS 
 #define STATUS 
 enum Status{
-    READY = 3,
-    IN_PROGRESS = 4,
-    FINISHED = 5
+    PENDING,
+    IN_PROGRESS,
+    FINISHED
 };
 
 string statusToString(Status s) {
   switch (s) { 
-    case READY: return "READY"; // Si es READY, devolver "READY"
-    case IN_PROGRESS: return "IN_PROGRESS"; // Si es IN_PROGRESS, devolver "IN_PROGRESS"
-    case FINISHED: return "FINISHED"; // Si es FINISHED, devolver "FINISHED"
+    case PENDING: return "PENDIENTE"; // Si es READY, devolver "PENDIENTE"
+    case IN_PROGRESS: return "EN PROGRESO"; // Si es IN_PROGRESS, devolver "EN PROGRESO"
+    case FINISHED: return "FINALIZADO"; // Si es FINISHED, devolver "FINALIZADO"
   }
 }
 #endif

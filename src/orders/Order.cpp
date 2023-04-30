@@ -9,7 +9,7 @@ using namespace std;
 class Order{
     public:
         // generator & destructor
-        Order(Client client, FruitType type){this->client=client ; this->type=type; this->status=Status::READY;};
+        Order(Client client, FruitType type){this->client=client ; this->type=type; this->status=Status::PENDING;};
         ~Order();
 
         //getters
