@@ -10,6 +10,7 @@ static const array<string, 10> names = {"Benjamín","Vicente","Martín","Matías
 class Client{
     public:
         Client(){name = names.at(rand()%10);};
+        Client();
         ~Client();
         string toString(){return name + ": ";};
 

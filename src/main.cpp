@@ -10,8 +10,8 @@ int main( int argc, char *argv[])
    Client *client1 = new Client();
    Client *client2 = new Client();
 
-   Crate *crate1 = new Crate("crate1", FruitType::APPLE);
-   Crate *crate2 = new Crate("crate2", FruitType::BANANA);
+   Crate *crate1 = new Crate("crate1", FruitType::APPLE, 0.0);
+   Crate *crate2 = new Crate("crate2", FruitType::BANANA,0.0);
 
     cout << client1->toString() << " "<< crate1->toString()<< endl;
     cout << client2->toString() << " "<< crate2->toString()<< endl;
