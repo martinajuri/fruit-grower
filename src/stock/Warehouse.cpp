@@ -12,10 +12,15 @@ class Warehouse{
         List<CrateStack> *orangeList = new List<CrateStack>;
 
     public:
+        Warehouse();
+        ~Warehouse();
         List<CrateStack> listaIndicada(FruitType type);
         void addFruit(float n);
         void addCrate(Crate crate);
         void addCrate(int n, FruitType type);
+        void deleteFruit(float n);
+        void deleteCrate(Crate crate);
+        void deleteCrate(int n, FruitType type);
 
 };
 
