@@ -13,7 +13,7 @@ public:
     Lista(Nodo<T>* n) { czo = n; };
     ~Lista();
     void add(T d); 
-    bool isEmpty(void){return czo->es_vacio();};
+    bool isEmpty(void){return czo->isEmpty();};
     T cabeza(void); //retorn primer nodo
     Lista* resto(void); //retorna el puntero al "resto" de la lista
                         //resto= lo que queda de la lista sin la cabeza
@@ -31,7 +31,7 @@ template <class T>
 void Lista<T>::add(T d) //100
 {
     Nodo<T>* nuevo = new Nodo<T>(d);
-    nuevo->set_next(czo);
+    nuevo->setNext(czo);
     czo = nuevo;
 }
 
@@ -42,13 +42,13 @@ T Lista<T>::cabeza(void)
         cout << " Error, Cabeza de lista vacia";
         return NULL;
     }
-    return czo->get_dato();
+    return czo->getDato();
 }
 
 template <class T>
 Lista<T>* Lista<T>::resto(void)
 {
-    Lista* l = new Lista(czo->get_next());
+    Lista* l = new Lista(czo->getNext());
     return (l);
 }
 
@@ -98,7 +98,7 @@ template <class T> void Lista<T>::borrar(void)
 { //borra el nodo cabeza
     if (!this->isEmpty()) {
         Nodo<T>* tmp = czo;
-        czo = czo->get_next();
+        czo = czo->getNext();
         delete tmp;
     }
 }
@@ -106,9 +106,9 @@ template <class T> void Lista<T>::borrar(void)
 template <class T> void Lista<T>::borrar_last()
 { // borra el ultimo nodo
     if (!this->isEmpty()) {
-        if ((czo->get_next())->get_next() == NULL) {
-            delete czo->get_next();
-            czo->set_next(NULL);
+        if ((czo->getNext())->getNext() == NULL) {
+            delete czo->getNext();
+            czo->setNext(NULL);
         }
         else this->resto()->borrar_last();
     }
