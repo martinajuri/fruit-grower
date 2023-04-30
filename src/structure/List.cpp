@@ -5,31 +5,31 @@
 
 using namespace std;
 
-template <class T> class Lista {
+template <class T> class List {
 
     private: Nodo<T>* czo;
      
     public:
-        Lista() { czo = new Nodo<T>(); };
-        Lista(Nodo<T>* n) { czo = n; };
-        ~Lista();
+        List() { czo = new Nodo<T>(); };
+        List(Nodo<T>* n) { czo = n; };
+        ~List();
         void add(T d); 
         bool isEmpty(void){return czo->isEmpty();};
         T cabeza(void); 
-        Lista* resto(void); 
+        List* resto(void); 
         string toPrint(string p);
         T suma(T i);
         int size();
         void borrar(void); 
         void borrar_last();
-        void concat(Lista<T>* l1);
-        Lista<T>* copy(void);
+        void concat(List<T>* l1);
+        List<T>* copy(void);
         void tomar(int n);
    
 };
 
 template <class T>
-void Lista<T>::add(T d) 
+void List<T>::add(T d) 
 {
     Nodo<T>* nuevo = new Nodo<T>(d);
     nuevo->setNext(czo);
@@ -38,7 +38,7 @@ void Lista<T>::add(T d)
 
 //Retorna el primer nodo
 template <class T>
-T Lista<T>::cabeza(void)
+T List<T>::cabeza(void)
 {
     if (this->isEmpty()) {
         cout << " Error, Cabeza de lista vacia";
@@ -50,14 +50,14 @@ T Lista<T>::cabeza(void)
 //retorna el puntero al "resto" de la lista
 //resto = lo que queda de la lista sin la cabeza
 template <class T>
-Lista<T>* Lista<T>::resto(void)
+List<T>* List<T>::resto(void)
 {
-    Lista* l = new Lista(czo->getNext());
+    List* l = new List(czo->getNext());
     return (l);
 }
 
 template <class T>
-string Lista<T>::toPrint(string p)
+string List<T>::toPrint(string p)
 {
     if (this->isEmpty()) {
         return p;
@@ -70,7 +70,7 @@ string Lista<T>::toPrint(string p)
 }
 
 template <class T>
-T Lista<T>::suma(T i)
+T List<T>::suma(T i)
 {    
     if (this->isEmpty()) {
         return i;
@@ -80,14 +80,14 @@ T Lista<T>::suma(T i)
     }
 }
 
-template <class T> int Lista<T>::size()
+template <class T> int List<T>::size()
 {
     if (this->isEmpty()) return 0;
     return 1 + this->resto()->size();
 }
 
 //borra el nodo cabeza
-template <class T> void Lista<T>::borrar(void)
+template <class T> void List<T>::borrar(void)
 { 
     if (!this->isEmpty()) {
         Nodo<T>* tmp = czo;
@@ -96,7 +96,7 @@ template <class T> void Lista<T>::borrar(void)
     }
 }
 //borra el ultimo
-template <class T> void Lista<T>::borrar_last()
+template <class T> void List<T>::borrar_last()
 { 
     if (!this->isEmpty()) {
         if ((czo->getNext())->getNext() == NULL) {
@@ -108,7 +108,7 @@ template <class T> void Lista<T>::borrar_last()
 }
 
 // le transfiere los datos de l1 a this
-template <class T> void Lista<T>::concat(Lista<T>* l1)
+template <class T> void List<T>::concat(List<T>* l1)
 {
     if (!(l1->isEmpty())) {
         this->concat(l1->resto());
@@ -117,15 +117,15 @@ template <class T> void Lista<T>::concat(Lista<T>* l1)
 }
 
 // hace una copia de la lista
-template <class T> Lista<T>* Lista<T>::copy(void)
+template <class T> List<T>* List<T>::copy(void)
 {
-    Lista<T>* aux = new Lista();
+    List<T>* aux = new List();
     aux->concat(this);
     return aux;
 }
 
 //deja "vivos" los n primeros nodos y borra el resto
-template <class T> void Lista<T>::tomar(int n)
+template <class T> void List<T>::tomar(int n)
 { 
     if (this->size() > n) {
         this->borrar_last();
