@@ -8,7 +8,7 @@
 
 using namespace std;
 
-#define MAX 10;
+#define MAX  10;
 
 class CrateStack : public List<Crate>{
 
@@ -26,6 +26,7 @@ class CrateStack : public List<Crate>{
          //devuelve la cantidad de cajones apilados
         int almacenado(){return this->size();};
         float capacity();
+        float capacidad_tope();
         //string getStringDeFruta(){return fruitTypeToString(frutaAlmacenada);};
 
     //Apila un caja
@@ -55,9 +56,14 @@ class CrateStack : public List<Crate>{
     //Retorna la capacidad disponible en la pila
     float capacity(){
 
-        float aux=(MAX - almacenado())*20.0;
-        return aux + tope().capacity();
+        float aux=MAX - almacenado();
+        return (aux*20.0) + tope().capacity();
 
+    };
+
+    // Retorna la capacidad de la caja que se encuentra arriba
+    float capacidad_tope(){
+        return tope().capacity();
     };
 
 };
