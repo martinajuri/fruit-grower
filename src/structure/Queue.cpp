@@ -4,7 +4,7 @@
 #include "List.cpp"
 
 using namespace std;
-template <class T> class Cola :public List<T> {
+template <class T> class Queue :public List<T> {
 public:
     Cola() { List<T>(); };
     ~Cola();
