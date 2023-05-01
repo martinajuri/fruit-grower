@@ -18,7 +18,7 @@ class Crate{
 
     public:
         //generator & destructor
-        Crate(string id, FruitType type, float fruitAmount){this->id=id;this->type=type;this->fruitAmount=fruitAmount;}; 
+        Crate(string i, FruitType t, float fA){id=i;type=t;fruitAmount=fA;}; 
         Crate(); 
         ~Crate(); 
 

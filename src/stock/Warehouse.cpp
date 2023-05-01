@@ -16,7 +16,9 @@ class Warehouse{
         ~Warehouse();
         List<CrateStack> listaIndicada(FruitType type);
         void addCrate(int n, FruitType type);
-
+        void addCrate(float f, FruitType type);
+        void deleteCrate(int n, FruitType type);
+        void deleteCrate(float f, FruitType type);
 };
 
 // Devuelve la lista indicada dependiendo el tipo de fruta que se quiere agregar
@@ -35,3 +37,18 @@ List<CrateStack> Warehouse::listaIndicada(FruitType type){
     }
 };
 
+// Apila una cantida n de cajones de un tipo
+void Warehouse::addCrate(int n, FruitType type){
+
+    List<CrateStack> list = listaIndicada(type);
+    list.last().apilarN(n,type);
+
+}
+
+// Apila una cantida f de kilos de una fruta 
+void Warehouse::addCrate(float f, FruitType type){
+
+    List<CrateStack> list = listaIndicada(type);
+    list.last().apilarN(f,type);
+
+}

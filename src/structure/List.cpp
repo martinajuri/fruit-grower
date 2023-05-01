@@ -134,13 +134,13 @@ template <class T> void List<T>::tomar(int n)
     }
 }
 
+//devuelve el ultimo elemento de la lista
 template <class T> T List<T>::last()
 {
 
-        if (czo->getNext() == NULL) { //si es el ultimo elemento de la lista
+    if (czo->getNext() == NULL) { //si es el ultimo elemento de la lista
         return *czo; //devuelve a lo que apunta el elemento
-        }
-        else
-        else this->resto()->last(); //parte recursiva (le va sacando un elemento a la lista) 
+    }
+    else this->resto()->last(); //parte recursiva (le va sacando un elemento a la lista) 
     
 }
