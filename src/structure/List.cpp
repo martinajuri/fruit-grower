@@ -20,7 +20,7 @@ template <class T> class List {
         string toPrint(string p);
         int size();
         void borrar(void); 
-        void borrar_last();
+        void borrar_ultimo();
         void concat(List<T>* l1);
         List<T>* copy(void);
         void tomar(int n);
@@ -56,6 +56,7 @@ List<T>* List<T>::resto(void)
     return (l);
 }
 
+
 template <class T>
 string List<T>::toPrint(string p)
 {
@@ -69,7 +70,7 @@ string List<T>::toPrint(string p)
     }
 }
 
-
+//Devuelve el tamaño
 template <class T> int List<T>::size()
 {
     if (this->isEmpty()) return 0;
@@ -86,7 +87,7 @@ template <class T> void List<T>::borrar(void)
     }
 }
 //borra el ultimo
-template <class T> void List<T>::borrar_last()
+template <class T> void List<T>::borrar_ultimo()
 { 
     if (!this->isEmpty()) {
         if ((czo->getNext())->getNext() == NULL) {
