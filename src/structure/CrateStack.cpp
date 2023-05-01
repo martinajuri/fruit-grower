@@ -1,38 +1,46 @@
 // Clase que representa una pila de 10 cajas con un tipo de fruta
 #include <iostream>
-#include <array>
+#include <cstdlib>
+#include <sstream>
+#include "List.cpp"
+#include "../utils/enum.hpp"
 #include "../model/Crate.cpp"
 
-#define MAX 10
 using namespace std;
 
-class CrateStack {
+#define MAX 10;
 
-private:
+class CrateStack : public List<Crate>{
 
-    Crate* cajasF; //Objeto de tipo crate que va a ser la pila de cajas
-    int pos; // Caja apilada
-    FruitType frutaAlmacenada; // Tipo de fruta almacenado en la pila
+    private:
 
-public:
-    
-    CrateStack(FruitType fruta) {pos = -1; frutaAlmacenada = fruta; cajasF = new Crate[MAX];}; //Constructor de la pila de cajas
-    void apilar(Crate c);//Apila una caja
-    void desapilar(void){if(!pilaVacia())pos--;}; //Desapila una caja
-    FruitType getFrutaAlmacenada(){return frutaAlmacenada;};//Devuelve que fruta esta almacenada en la pila 
-    bool pilaVacia(){return pos == -1;};//Verifica si la pila esta vacia
-    bool pilaLlena(){return pos == MAX-1;};//Verifica si la pila esta llena
-    int almacenado() {return pos + 1;};//Devuelve la cantidad de cajas alamacenada
-    
-};
+        FruitType frutaAlmacenada;   
+        
+    public:
 
-    void CrateStack::apilar(Crate c){
+        CrateStack(FruitType f){List<Crate>(); frutaAlmacenada = f;};
+        Crate tope(void){return this->cabeza();};
+        void desapilar(void){if(!pilaVacia()){this->borrar();}};
+        bool pilaVacia(){return this->isEmpty();};
+        bool pilaLlena(){return this->size() == MAX;};
+        FruitType getFrutaAlmacenada(){return frutaAlmacenada;};
+        //string getStringDeFruta(){return fruitTypeToString(frutaAlmacenada);};
+        int almacenado(){return this->size();};
+
+    //Apila un caja
+    void CrateStack :: apilar(Crate c){
 
         if(!pilaLlena()){
 
-            cajasF[++pos] = c;
-
-        }else{cout << "Pila llena" << endl;}
-
-
+            if(tope().hasCapacity()){
+                Crate cajaAux = tope();
+                desapilar();
+                this->add(c);
+                this->add(cajaAux);
+            }else{
+                this->add(c);
+                }
+            }
     }
+};
+
