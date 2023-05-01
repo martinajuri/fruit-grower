@@ -18,7 +18,6 @@ template <class T> class List {
         T cabeza(void); 
         List* resto(void); 
         string toPrint(string p);
-        T suma(T i);
         int size();
         void borrar(void); 
         void borrar_last();
@@ -70,16 +69,6 @@ string List<T>::toPrint(string p)
     }
 }
 
-template <class T>
-T List<T>::suma(T i)
-{    
-    if (this->isEmpty()) {
-        return i;
-    }
-    else {
-        return this->resto()->suma(i + this->cabeza());
-    }
-}
 
 template <class T> int List<T>::size()
 {
