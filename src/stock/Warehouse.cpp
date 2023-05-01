@@ -66,7 +66,8 @@ void Warehouse :: apilarN(int n, FruitType type, List<CrateStack> list){
         
     }
 
-void Warehouse :: apilarF(float f, FruitType type, List<CrateStack> list){
+void Warehouse :: apilarF(float f, FruitType type){
         
+        List<CrateStack> list =listaIndicada(type);
         
 }

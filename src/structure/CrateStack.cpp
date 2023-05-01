@@ -23,8 +23,10 @@ class CrateStack : public List<Crate>{
         bool pilaVacia(){return this->isEmpty();};
         bool pilaLlena(){return this->size() == MAX;};
         FruitType getFrutaAlmacenada(){return frutaAlmacenada;};
-        //string getStringDeFruta(){return fruitTypeToString(frutaAlmacenada);};
+         //devuelve la cantidad de cajones apilados
         int almacenado(){return this->size();};
+        float capacity();
+        //string getStringDeFruta(){return fruitTypeToString(frutaAlmacenada);};
 
     //Apila un caja
     void apilar(Crate c){
@@ -50,6 +52,13 @@ class CrateStack : public List<Crate>{
         }
     };
 
-  
+    //Retorna la capacidad disponible en la pila
+    float capacity(){
+
+        float aux=(MAX - almacenado())*20.0;
+        return aux + tope().capacity();
+
+    };
+
 };
 
