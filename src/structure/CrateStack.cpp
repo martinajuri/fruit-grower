@@ -20,7 +20,6 @@ class CrateStack : public List<Crate>{
 
         CrateStack(FruitType f){List<Crate>(); frutaAlmacenada = f;};
         Crate tope(void){return this->cabeza();};
-        void desapilar(void){if(!pilaVacia()){this->borrar();}};
         bool pilaVacia(){return this->isEmpty();};
         bool pilaLlena(){return this->size() == MAX;};
         FruitType getFrutaAlmacenada(){return frutaAlmacenada;};
@@ -28,7 +27,7 @@ class CrateStack : public List<Crate>{
         int almacenado(){return this->size();};
 
     //Apila un caja
-    void CrateStack :: apilar(Crate c){
+    void apilar(Crate c){
 
         if(!pilaLlena()){
 
@@ -42,5 +41,13 @@ class CrateStack : public List<Crate>{
                 }
             }
     }
+
+    //Desapila una caja
+    void desapilar(void){
+        
+        if(!pilaVacia()){
+            this->borrar();
+        }
+    };
 };
 

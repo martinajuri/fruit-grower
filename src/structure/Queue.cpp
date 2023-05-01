@@ -4,10 +4,11 @@
 #include "List.cpp"
 
 using namespace std;
+
 template <class T> class Queue :public List<T> {
 public:
-    Cola() { List<T>(); };
-    ~Cola();
+    Queue() { List<T>(); };
+    ~Queue();
     T tope() { return this->last(); };
     bool colavacia(void) { return this->isEmpty(); };
     void encolar(T a) { this->add(a); };
