@@ -25,6 +25,7 @@ template <class T> class List {
         void concat(List<T>* l1);
         List<T>* copy(void);
         void tomar(int n);
+        T last();
    
 };
 
@@ -131,4 +132,15 @@ template <class T> void List<T>::tomar(int n)
         this->borrar_last();
         this->tomar(n);
     }
+}
+
+template <class T> T List<T>::last()
+{
+
+        if (czo->getNext() == NULL) { //si es el ultimo elemento de la lista
+        return *czo; //devuelve a lo que apunta el elemento
+        }
+        else
+        else this->resto()->last(); //parte recursiva (le va sacando un elemento a la lista) 
+    
 }
