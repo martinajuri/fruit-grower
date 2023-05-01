@@ -25,25 +25,29 @@ class CrateStack : public List<Crate>{
         FruitType getFrutaAlmacenada(){return frutaAlmacenada;};
          //devuelve la cantidad de cajones apilados
         int almacenado(){return this->size();};
-        float capacity();
-        float capacidad_tope();
+        //float stackCapacity();
+        //float capacidad_tope();
         //string getStringDeFruta(){return fruitTypeToString(frutaAlmacenada);};
 
     //Apila un caja
     void apilar(Crate c){
-
         if(!pilaLlena()){
-
-            if(tope().hasCapacity()){
+            if(tope().hasCapacity() && !c.hasCapacity()){
                 Crate cajaAux = tope();
                 desapilar();
                 this->add(c);
                 this->add(cajaAux);
-            }else{
-                this->add(c);
+            }else if(tope().hasCapacity()){
+                if(tope().capacity() >= c.getFruitAmount()){
+                    tope().addFruit(c.getFruitAmount());
+                }else{
+                    float aux = tope().capacity();
+                    tope().addFruit(tope().capacity());
+                    tope().deleteFruit(aux);
                 }
+            }else{this->add(c);}
             }
-    }
+    };
 
     //Desapila una caja
     void desapilar(void){
@@ -54,10 +58,10 @@ class CrateStack : public List<Crate>{
     };
 
     //Retorna la capacidad disponible en la pila
-    float capacity(){
+    float stackCapacity(){
 
-        float aux=MAX - almacenado();
-        return (aux*20.0) + tope().capacity();
+        float aux= MAX - almacenado();
+        return ((aux*20.0) + tope().capacity());
 
     };
 
