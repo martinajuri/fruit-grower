@@ -50,25 +50,6 @@ class CrateStack : public List<Crate>{
         }
     };
 
-    // Apila una cantidad n de cajones
-    void apilarN(int n, FruitType type){
-        
-        for (int i = 0; i < n; i++)
-        {
-            Crate *c = new Crate("crate"+n, type, 20.0);
-            apilar(*c);
-        }
-        
-    }
-
-    void apilarN(int n, FruitType type){
-        
-        for (int i = 0; i < n; i++)
-        {
-            Crate *c = new Crate("crate"+n, type, 20.0);
-            apilar(*c);
-        }
-        
-    }
+  
 };
 
