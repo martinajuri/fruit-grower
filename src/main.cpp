@@ -47,5 +47,5 @@ int main( int argc, char *argv[])
     cola->encolar(*marti);
     cola->encolar(*sofia);
 
-    cola->imprimir();
+    cola->imprimirQ();
 }

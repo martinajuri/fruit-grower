@@ -27,6 +27,7 @@ template <class T> class List {
         void tomar(int n);
         T last();
         void imprimir();
+        void imprimirQ();
    
 };
 
@@ -70,14 +71,27 @@ string List<T>::toPrint(string p)
     }
 }
 
-
+//imprime listas, el ultimo en ser agregado es el que se muestra primero
 template <class T>
 void List<T>::imprimir(){
     
     if (this->isEmpty()) {
     }
-    else {  
+    else {
+        cabeza().imprimir();
+        cout<< endl;
         this->resto()->imprimir();
+    }
+}
+
+//imprime colas: el primero en llegar es el que se muestra primero
+template <class T>
+void List<T>::imprimirQ(){
+    
+    if (this->isEmpty()) {
+    }
+    else {  
+        this->resto()->imprimirQ();
         cabeza().imprimir();
         cout<< endl;
     }
