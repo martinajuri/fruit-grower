@@ -43,7 +43,6 @@ template <class T>
 T List<T>::cabeza(void)
 {
     if (this->isEmpty()) {
-        cout << " Error, Cabeza de lista vacia";
         return czo->getDato(); //invalid conversion from 'long long int' to 'FruitType' [-fpermissive]
     }
     return czo->getDato();
@@ -75,13 +74,11 @@ template <class T>
 void List<T>::imprimir(){
     
     if (this->isEmpty()) {
-        cabeza().imprimir();
     }
     else {
-        this->cabeza().imprimir();
-        cout << endl;
-        this->resto()->imprimir();
+        cabeza().imprimir();
         cout<< endl;
+        this->resto()->imprimir();
     }
     }
 

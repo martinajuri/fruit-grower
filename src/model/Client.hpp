@@ -2,6 +2,7 @@
 #include <array>
 #include <random>
 #include <initializer_list>
+#include <string>
 using namespace std;
 
 #ifndef NAMES
@@ -13,7 +14,7 @@ static const array<string, 10> names = {"Benjamín","Vicente","Martín","Matías
 class Client{
     public:
         Client(){name = names.at(rand()%10);};
-        //Client();
+        Client(string n){name=n;};
         string toString(){return name + ": ";};
         void imprimir(){cout << toString();}
 
