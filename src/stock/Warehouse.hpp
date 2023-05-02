@@ -17,7 +17,6 @@ class Warehouse{
 
     public:
         Warehouse();
-        //~Warehouse();
         List<CrateStack> listaIndicada(FruitType type);
         void addFruit(Crate c);
         void concretarOrdenR(RetailOrder order);

@@ -18,7 +18,6 @@ class Crate{
         //generator & destructor
         Crate(string i, FruitType t, float fA){id=i;type=t;fruitAmount=fA;}; 
         Crate(); 
-        //~Crate(); 
 
         //getters
         string getId(){return id;};

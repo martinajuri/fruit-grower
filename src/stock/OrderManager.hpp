@@ -19,7 +19,6 @@ class OrderManager{
         //Constructor y destructor
         OrderManager(Warehouse w){warehouse=w;};
         OrderManager();
-        //~OrderManager();
 
         //Agrega a la cola una orden minorista o mayorista
         void addRetailOrder(RetailOrder ro){retailQueue->encolar(ro);}
