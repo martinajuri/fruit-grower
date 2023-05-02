@@ -10,6 +10,7 @@ class Order{
     public:
         // generator & destructor
         Order(Client client, FruitType type){this->client=client ; this->type=type; this->status=Status::PENDING;};
+        Order();
         ~Order();
 
         //getters

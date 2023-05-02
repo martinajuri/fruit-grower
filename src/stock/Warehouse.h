@@ -27,6 +27,7 @@ class Warehouse{
         bool checkOrderR(RetailOrder order);
         //agregar status
 };
+
 // Devuelve la lista indicada dependiendo el tipo de fruta que se quiere agregar
 List<CrateStack> Warehouse::listaIndicada(FruitType type){
     switch (type)

@@ -22,9 +22,9 @@ template <class T> class List {
         int size();
         void borrar(void); 
         void borrar_ultimo();
-        //void concat(List<T>* l1);
-        // List<T>* copy(void);
-        //void tomar(int n);
+        void concat(List<T>* l1);
+        List<T>* copy(void);
+        void tomar(int n);
         T last();
         void imprimir();
    
@@ -44,7 +44,7 @@ T List<T>::cabeza(void)
 {
     if (this->isEmpty()) {
         cout << " Error, Cabeza de lista vacia";
-        return NULL; //invalid conversion from 'long long int' to 'FruitType' [-fpermissive]
+        //return NULL; //invalid conversion from 'long long int' to 'FruitType' [-fpermissive]
     }
     return czo->getDato();
 }
@@ -114,7 +114,7 @@ template <class T> void List<T>::borrar_ultimo()
 }
 
 // le transfiere los datos de l1 a this
-/*template <class T> void List<T>::concat(List<T>* l1)
+template <class T> void List<T>::concat(List<T>* l1)
 {
     if (!(l1->isEmpty())) {
         this->concat(l1->resto());
@@ -128,9 +128,9 @@ template <class T> List<T>* List<T>::copy(void)
     List<T>* aux = new List();
     aux->concat(this);
     return aux;
-}*/
+}
 
-/*
+
 //deja "vivos" los n primeros nodos y borra el resto
 template <class T> void List<T>::tomar(int n)
 { 
@@ -138,14 +138,15 @@ template <class T> void List<T>::tomar(int n)
         this->borrar_last();
         this->tomar(n);
     }
-}*/
+}
 
 //devuelve el ultimo elemento de la lista
-template <class T> T List<T>::last()
+template <class T> 
+T List<T>::last()
 {
 
     if (czo->getNext() == NULL) { //si es el ultimo elemento de la lista
-        return *czo; //devuelve a lo que apunta el elemento
+        return czo->getDato(); //devuelve a lo que apunta el elemento
     // "could not convert '*((List<WholesaleOrder>*)this)->List<WholesaleOrder>::czo' from 'Nodo<WholesaleOrder>' to 'WholesaleOrder'",
     }
     else this->resto()->last(); //parte recursiva (le va sacando un elemento a la lista) 

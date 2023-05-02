@@ -11,7 +11,7 @@ using namespace std;
 int main( int argc, char *argv[])
 {
     Warehouse *deposito = new Warehouse();
-    //OrderManager *cajero = new OrderManager(*deposito);
+    OrderManager *cajero = new OrderManager(*deposito);
 
     Client *client1 = new Client();
     Client *client2 = new Client();
@@ -19,8 +19,7 @@ int main( int argc, char *argv[])
     Crate *crate1 = new Crate("crate1", FruitType::APPLE, 15.0f);
     Crate *crate2 = new Crate("crate2", FruitType::BANANA,2.0f);
 
-
-
     RetailOrder *orden1 = new RetailOrder(2.0,*client1,FruitType::APPLE);
+    WholesaleOrder *orden2 = new WholesaleOrder(5,*client2,FruitType::BANANA);
 
 }
