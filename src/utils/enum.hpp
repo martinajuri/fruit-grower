@@ -12,6 +12,7 @@ string fruitTypeToString(FruitType f) {
     case APPLE: return "manzanas"; // Si es APPLE, devolver "manzanas"
     case BANANA: return "bananas"; // Si es BANANA, devolver "bananas"
     case ORANGE: return "naranjas"; // Si es ORANGE, devolver "naranjas"
+    default: return "No vendemos ese tipo de fruta";
   }
 }
 #endif 
@@ -29,6 +30,7 @@ string statusToString(Status s) {
     case PENDING: return "PENDIENTE"; // Si es PENDING, devolver "PENDIENTE"
     case IN_PROGRESS: return "EN PROGRESO"; // Si es IN_PROGRESS, devolver "EN PROGRESO"
     case FINISHED: return "FINALIZADO"; // Si es FINISHED, devolver "FINALIZADO"
+    default: return " ";
   }
 }
 #endif

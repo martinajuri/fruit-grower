@@ -38,7 +38,7 @@ List<CrateStack> Warehouse::listaIndicada(FruitType type){
     case FruitType::BANANA:
         return *bananaList;
         break;
-    case FruitType::ORANGE:
+    default:
         return *orangeList;
         break;
     }

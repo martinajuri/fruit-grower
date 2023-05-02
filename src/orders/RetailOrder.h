@@ -19,5 +19,4 @@ class RetailOrder : public Order{
     private:
         float weight;
         
-
 };

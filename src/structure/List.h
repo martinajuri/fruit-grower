@@ -44,7 +44,7 @@ T List<T>::cabeza(void)
 {
     if (this->isEmpty()) {
         cout << " Error, Cabeza de lista vacia";
-        //return NULL; //invalid conversion from 'long long int' to 'FruitType' [-fpermissive]
+        return czo->getDato(); //invalid conversion from 'long long int' to 'FruitType' [-fpermissive]
     }
     return czo->getDato();
 }
@@ -58,7 +58,6 @@ List<T>* List<T>::resto(void)
     return (l);
 }
 
-
 template <class T>
 string List<T>::toPrint(string p)
 {
@@ -71,6 +70,7 @@ string List<T>::toPrint(string p)
         return stm.str();
     }
 }
+
 template <class T>
 void List<T>::imprimir(){
     
@@ -144,11 +144,9 @@ template <class T> void List<T>::tomar(int n)
 template <class T> 
 T List<T>::last()
 {
-
     if (czo->getNext() == NULL) { //si es el ultimo elemento de la lista
         return czo->getDato(); //devuelve a lo que apunta el elemento
     // "could not convert '*((List<WholesaleOrder>*)this)->List<WholesaleOrder>::czo' from 'Nodo<WholesaleOrder>' to 'WholesaleOrder'",
     }
-    else this->resto()->last(); //parte recursiva (le va sacando un elemento a la lista) 
-    
+    else {return this->resto()->last();} //parte recursiva (le va sacando un elemento a la lista) 
 }

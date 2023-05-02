@@ -62,7 +62,7 @@ class CrateStack : public List<Crate>{
     // Desapila x kilos de fruta
     void desapilarKilos(float kilos){
         
-        if(kilos=cabeza().getFruitAmount()){
+        if(kilos==cabeza().getFruitAmount()){
             desapilar();
         }
         else if(kilos<cabeza().getFruitAmount()){
