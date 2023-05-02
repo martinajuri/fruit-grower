@@ -7,6 +7,7 @@
 #include "../structure/Queue.h"
 #include "../stock/Warehouse.h"
 
+#pragma once
 class OrderManager{
 
     private:

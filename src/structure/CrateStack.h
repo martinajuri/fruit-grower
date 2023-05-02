@@ -10,6 +10,7 @@ using namespace std;
 
 #define MAX  10;
 
+#pragma once
 class CrateStack : public List<Crate>{
 
     private:

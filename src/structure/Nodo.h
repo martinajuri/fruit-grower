@@ -4,8 +4,7 @@
 
 using namespace std;
 
-#ifndef NODO
-#define NODO
+#pragma once
 template <class T> class Nodo {
 private:
     T dato;
@@ -19,4 +18,4 @@ public:
     Nodo* getNext() { return next; };
     bool isEmpty() { return next == NULL; }
 };
-#endif
+

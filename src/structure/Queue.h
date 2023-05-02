@@ -5,6 +5,7 @@
 
 using namespace std;
 
+#pragma once
 template <class T> class Queue :public List<T> {
 public:
     Queue() { List<T>(); };

@@ -9,6 +9,7 @@ using namespace std;
 static const array<string, 10> names = {"Benjamín","Vicente","Martín","Matías","Joaquín","Lucía","María","Paula","Daniela","Sara"};
 #endif
 
+#pragma once
 class Client{
     public:
         Client(){name = names.at(rand()%10);};

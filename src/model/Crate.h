@@ -4,8 +4,7 @@
 
 using namespace std;
 
-#ifndef CRATE
-#define CRATE
+#pragma once
 class Crate{
     private:
         string id;
@@ -55,4 +54,3 @@ class Crate{
             }
         }
 };
-#endif

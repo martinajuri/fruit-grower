@@ -8,6 +8,7 @@
 
 using namespace std;
 
+#pragma once
 class Warehouse{
     private:
         List<CrateStack> *appleList = new List<CrateStack>;

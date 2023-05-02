@@ -5,11 +5,9 @@
 #include "../model/Client.h"
 #include "../utils/enum.hpp"
 
-
 using namespace std;
 
-#ifndef RETAILORDER
-#define RETAILORDER
+#pragma once
 class RetailOrder : public Order{
     public:
     
@@ -22,4 +20,3 @@ class RetailOrder : public Order{
         
 
 };
-#endif

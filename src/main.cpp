@@ -11,7 +11,7 @@ using namespace std;
 int main( int argc, char *argv[])
 {
     Warehouse *deposito = new Warehouse();
-    OrderManager *cajero = new OrderManager(*deposito);
+    //OrderManager *cajero = new OrderManager(*deposito);
 
     Client *client1 = new Client();
     Client *client2 = new Client();

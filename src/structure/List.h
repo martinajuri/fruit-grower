@@ -5,6 +5,7 @@
 
 using namespace std;
 
+#pragma once
 template <class T> class List {
 
     private: Nodo<T>* czo;
