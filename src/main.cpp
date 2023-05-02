@@ -1,22 +1,26 @@
 #include <iostream>
-#include "model\Client.cpp"
-#include "model\Crate.cpp"
+#include "model\Client.h"
+#include "model\Crate.h"
 #include "utils\enum.hpp"
+#include "orders\RetailOrder.h"
+#include "orders\WholesaleOrder.h"
+#include "stock\OrderManager.h"
+#include "stock\Warehouse.h"
 
 using namespace std;
 int main( int argc, char *argv[])
 {
-   
-   Client *client1 = new Client();
-   Client *client2 = new Client();
+    Warehouse *deposito = new Warehouse();
+    OrderManager *cajero = new OrderManager(*deposito);
 
-   Crate *crate1 = new Crate("crate1", FruitType::APPLE, 15.0f);
-   Crate *crate2 = new Crate("crate2", FruitType::BANANA,2.0f);
+    Client *client1 = new Client();
+    Client *client2 = new Client();
 
-    cout << client1->toString() << " "<< crate1->toString()<< endl;
-    cout << client2->toString() << " "<< crate2->toString()<< endl;
-    
-    crate1->deleteFruit(5);
-    cout << crate1->toString()<< endl;
+    Crate *crate1 = new Crate("crate1", FruitType::APPLE, 15.0f);
+    Crate *crate2 = new Crate("crate2", FruitType::BANANA,2.0f);
+
+
+
+    RetailOrder *orden1 = new RetailOrder(2.0,*client1,FruitType::APPLE);
 
 }
