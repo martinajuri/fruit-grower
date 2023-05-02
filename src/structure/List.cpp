@@ -25,6 +25,7 @@ template <class T> class List {
         // List<T>* copy(void);
         //void tomar(int n);
         T last();
+        void imprimir();
    
 };
 
@@ -69,6 +70,19 @@ string List<T>::toPrint(string p)
         return stm.str();
     }
 }
+template <class T>
+void List<T>::imprimir(){
+    
+    if (this->isEmpty()) {
+        cabeza().imprimir();
+    }
+    else {
+        this->cabeza().imprimir();
+        cout << endl;
+        this->resto()->imprimir();
+        cout<< endl;
+    }
+    }
 
 //Devuelve el tamaño
 template <class T> int List<T>::size()
@@ -94,7 +108,7 @@ template <class T> void List<T>::borrar_ultimo()
             delete czo->getNext();
             czo->setNext(NULL);
         }
-        else this->resto()->borrar_last();
+        else this->resto()->borrar_ultimo();
     }
 }
 
@@ -126,6 +140,7 @@ template <class T> void List<T>::tomar(int n)
 }*/
 
 //devuelve el ultimo elemento de la lista
+// "could not convert '*((List<WholesaleOrder>*)this)->List<WholesaleOrder>::czo' from 'Nodo<WholesaleOrder>' to 'WholesaleOrder'",
 template <class T> T List<T>::last()
 {
 

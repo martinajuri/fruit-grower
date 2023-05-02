@@ -4,8 +4,10 @@
 #include <initializer_list>
 using namespace std;
 
-
+#ifndef NAMES
+#define NAMES
 static const array<string, 10> names = {"Benjamín","Vicente","Martín","Matías","Joaquín","Lucía","María","Paula","Daniela","Sara"};
+#endif
 
 class Client{
     public:
