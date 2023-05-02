@@ -15,7 +15,7 @@ class RetailOrder : public Order{
         RetailOrder();
         float getAmount(){return weight;};
         string toString(){return getClient().toString() + to_string(getAmount()) + " " + fruitTypeToString(getFruitType()); };
-        void imprimir(){cout << getClient().toString() + to_string(getAmount()) + " " + fruitTypeToString(getFruitType());}
+        void imprimir(){cout << getClient().toString() + to_string(getAmount()) + " " + fruitTypeToString(getFruitType()) + " Estado: " + statusToString(getStatus());}
     private:
         float weight;
         

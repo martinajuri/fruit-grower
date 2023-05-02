@@ -15,7 +15,7 @@ class WholesaleOrder : public Order{
         WholesaleOrder();
         int getAmount(){return amount;};
         string toString(){return getClient().toString() + to_string(getAmount()) + " cajones de " + fruitTypeToString(getFruitType()); };
-        void imprimir(){cout << getClient().toString() + to_string(getAmount()) + " " + fruitTypeToString(getFruitType());}
+        void imprimir(){cout << getClient().toString() + to_string(getAmount()) + " " + fruitTypeToString(getFruitType())+ " Estado: " + statusToString(getStatus());}
 
     private:
         int amount;

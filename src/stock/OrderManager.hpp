@@ -28,14 +28,14 @@ class OrderManager{
         void removeRetailOrder(){retailQueue->desencolar();}
         void removeWholesaleOrder(){wholesaleQueue->desencolar();}
     
-        void makeOrder();
+        void makeOrder(bool b);
         void makeRetailOrder(RetailOrder order);
         void makeWholesaleOrder(WholesaleOrder order);
 
         void imprimir();
 };
 
-//concretar un pedido minorista
+//atender un pedido minorista
 void OrderManager::makeRetailOrder(RetailOrder order){
     
     order.setStatus(Status::IN_PROGRESS);
@@ -49,13 +49,14 @@ void OrderManager::makeRetailOrder(RetailOrder order){
     }
 };
 
-//concretar un pedido mayorista
-void OrderManager::makeWholesaleOrder(WholesaleOrder order){
-    
+//atender un pedido mayorista
+void OrderManager::makeWholesaleOrder(WholesaleOrder order){   
     order.setStatus(Status::IN_PROGRESS);
     if(warehouse.checkOrderW(order)){
         warehouse.concretarOrdenW(order);
         order.setStatus(Status::FINISHED);
+        cout << "ORDEN REALIZADA:" <<endl;
+        order.imprimir();
         removeWholesaleOrder();
     }
     else{
@@ -63,15 +64,27 @@ void OrderManager::makeWholesaleOrder(WholesaleOrder order){
     }
 };
 
-void OrderManager::makeOrder(){
-    if(retailQueue->size()>0){
+//Atender un pedido, recibe true si le da prioridad a los pedidos minoristas y false si da prioridad a los mayoristas
+void OrderManager::makeOrder(bool b){
+    if(b){
+       if(retailQueue->size()>0){
         makeRetailOrder(retailQueue->tope());
+        }
+        else{
+        makeWholesaleOrder(wholesaleQueue->tope());
+        } 
     }
     else{
-        makeWholesaleOrder(wholesaleQueue->tope());
+        if(wholesaleQueue->size()>0){
+            makeWholesaleOrder(wholesaleQueue->tope());
+        }
+        else{
+            makeRetailOrder(retailQueue->tope());
+        }
     }
 }
 
+//Imprimir el listado de pedidos minoristas y mayoristas
 void OrderManager::imprimir(){
     cout<<"Pedidos minoristas: " <<endl;retailQueue->imprimir();
     cout<<"Pedidos mayoristas: " <<endl;wholesaleQueue->imprimir();
