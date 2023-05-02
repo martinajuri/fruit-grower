@@ -24,6 +24,7 @@ class OrderManager{
         void removeRetailOrder(){RetailQueue->desencolar();}
         void removelesaleOrder(){WholesaleQueue->desencolar();}
 
+    
 
 
 

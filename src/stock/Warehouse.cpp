@@ -4,6 +4,9 @@
 #include "../structure/CrateStack.cpp"
 #include "../structure/Nodo.cpp"
 #include "../model/Crate.cpp"
+#include "../orders/Order.cpp"
+#include "../orders/RetailOrder.cpp"
+#include "../orders/WholesaleOrder.cpp"
 
 class Warehouse{
     private:
@@ -15,12 +18,13 @@ class Warehouse{
         Warehouse();
         ~Warehouse();
         List<CrateStack> listaIndicada(FruitType type);
-        void addCrate(int n, FruitType type);
-        void addCrate(float f, FruitType type);
-        void deleteCrate(int n, FruitType type);
-        void deleteCrate(float f, FruitType type);
-        void apilarN(int n, FruitType type, List<CrateStack> list);
-        void apilarF(float f, FruitType type, List<CrateStack> list);
+        void addFruit(Crate c);
+        void concretarOrdenR(RetailOrder order);
+        void concretarOrdenW(WholesaleOrder order);
+        float stockCompleto(FruitType type);
+        void checkOrderW(WholesaleOrder order);
+        void checkOrderR(RetailOrder order);
+        //agregar status
 };
 
 // Devuelve la lista indicada dependiendo el tipo de fruta que se quiere agregar
@@ -39,35 +43,100 @@ List<CrateStack> Warehouse::listaIndicada(FruitType type){
     }
 };
 
-// Apila una cantida n de cajones de un tipo
-void Warehouse::addCrate(int n, FruitType type){
+// Llega al deposito un cajon con una cantida de una fruta 
+void Warehouse::addFruit(Crate c){
 
-    List<CrateStack> list = listaIndicada(type);
-    apilarN(n,type,list);
+    List<CrateStack> list = listaIndicada(c.getType());
 
-}
-
-// Apila una cantida f de kilos de una fruta 
-void Warehouse::addCrate(float f, FruitType type){
-
-    List<CrateStack> list = listaIndicada(type);
-    apilarF(f,type,list);
-
-}
-
-// Apila una cantidad n de cajones
-void Warehouse :: apilarN(int n, FruitType type, List<CrateStack> list){
-        
-        for (int i = 0; i < n; i++)
-        {
-            Crate *c = new Crate("crate"+n, type, 20.0);
-            list.last().apilar(*c);
-        }
-        
+    // Si todo lo del cajon entra en la ultima pila, este se agrega
+    if(list.cabeza().stackCapacity()>= c.getFruitAmount()){
+        list.cabeza().apilar(c);
     }
+    else{
+        //Apilo la cantidad de fruta que entre 
+        float aux= list.cabeza().stackCapacity();
+        Crate *crateAux = new Crate("Cajon auxiliar", c.getType(),aux);
+        list.cabeza().apilar(*crateAux);
+        c.deleteFruit(aux);
 
-void Warehouse :: apilarF(float f, FruitType type){
-        
-        List<CrateStack> list =listaIndicada(type);
-        
-}
+        //Creo una nueva pila de cajones y apilo el sobrante
+        CrateStack *pilaNueva = new CrateStack(c.getType());
+        list.add(*pilaNueva);
+        pilaNueva->apilar(c);
+    }
+};
+
+// Concreta una orden minorista
+void Warehouse::concretarOrdenR(RetailOrder order){
+
+    List<CrateStack> list = listaIndicada(order.getFruitType());
+    if(order.getAmount()<=list.cabeza().cantidad_kilos() ){
+        list.cabeza().desapilarKilos(order.getAmount());
+        cout << "Pedido concretado" << endl;
+
+    }
+    else{
+        float aux = order.getAmount()-list.cabeza().cantidad_kilos();
+        list.cabeza().desapilarKilos(list.cabeza().cantidad_kilos());
+        list.borrar();
+        list.cabeza().desapilarKilos(aux);
+        cout << "Pedido concretado" << endl;
+    }
+};
+
+// Concreta una orden mayorista
+void Warehouse::concretarOrdenW(WholesaleOrder order){
+    
+    List<CrateStack> list = listaIndicada(order.getFruitType());
+    Crate cabezaAux = list.cabeza().cabeza();
+    
+    if(list.cabeza().cabeza().hasCapacity()){
+        list.cabeza().desapilar();
+        concretarOrdenW(order);
+        list.cabeza().apilar(cabezaAux);
+    }
+    else if(order.getAmount()<=list.cabeza().almacenado()){
+            list.cabeza().desapilarCajonEntero(order.getAmount());
+            cout << "Pedido concretado" << endl;
+
+    }
+    else{
+        int aux = order.getAmount()-list.cabeza().almacenado();
+        list.borrar();
+        list.cabeza().desapilarCajonEntero(aux);
+        cout << "Pedido concretado" << endl;
+    }
+};
+
+// Devuelve la cantidad de kilos de un tipo de fruta
+float Warehouse::stockCompleto(FruitType type){
+    List<CrateStack> list = listaIndicada(type);
+    int aux = list.size()-1;
+    float cantidadKilos = aux*200.0;
+    cantidadKilos += list.cabeza().cantidad_kilos();
+    return cantidadKilos;
+    
+};
+
+// Intenta concretar una orden mayorista
+void Warehouse::checkOrderW(WholesaleOrder order){
+    float aux = order.getAmount() *20.0;
+    if(order.getAmount()<=stockCompleto(order.getFruitType())){
+        concretarOrdenW(order);
+    }
+    else{
+        cout<<"No fue posible concretar la orden"<<endl;
+    }
+};
+
+
+// Intenta concretar una orden minorista
+void Warehouse::checkOrderR(RetailOrder order){
+
+    if(order.getAmount()<=stockCompleto(order.getFruitType())){
+        concretarOrdenR(order);
+    }
+    else{
+        cout<<"No fue posible concretar la orden"<<endl;
+    }
+};

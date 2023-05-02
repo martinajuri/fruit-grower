@@ -26,7 +26,7 @@ enum Status{
 
 string statusToString(Status s) {
   switch (s) { 
-    case PENDING: return "PENDIENTE"; // Si es READY, devolver "PENDIENTE"
+    case PENDING: return "PENDIENTE"; // Si es PENDING, devolver "PENDIENTE"
     case IN_PROGRESS: return "EN PROGRESO"; // Si es IN_PROGRESS, devolver "EN PROGRESO"
     case FINISHED: return "FINALIZADO"; // Si es FINISHED, devolver "FINALIZADO"
   }

@@ -31,7 +31,7 @@ class CrateStack : public List<Crate>{
 
     //Apila un caja
     void apilar(Crate c){
-        if(!pilaLlena()){
+        
             if(tope().hasCapacity() && !c.hasCapacity()){
                 Crate cajaAux = tope();
                 desapilar();
@@ -46,7 +46,7 @@ class CrateStack : public List<Crate>{
                     tope().deleteFruit(aux);
                 }
             }else{this->add(c);}
-            }
+            
     };
 
     //Desapila una caja
@@ -55,6 +55,38 @@ class CrateStack : public List<Crate>{
         if(!pilaVacia()){
             this->borrar();
         }
+    };
+
+    // Desapila x kilos de fruta
+    void desapilarKilos(float kilos){
+        
+        if(kilos=cabeza().getFruitAmount()){
+            desapilar();
+        }
+        else if(kilos<cabeza().getFruitAmount()){
+            cabeza().deleteFruit(kilos);
+        }
+        else{
+            float aux = kilos - cabeza().getFruitAmount();
+            desapilar();
+            desapilarKilos(aux);
+        }
+    };
+
+    void desapilarCajonEntero(int n){
+        
+        if(tope().hasCapacity()){
+                Crate cajaAux = tope();
+                desapilar();
+                desapilarCajonEntero(n);
+                this->add(cajaAux);
+        }
+        else{
+            for (int i = 0; i < n; i++){
+                desapilar();
+            }
+        }
+        
     };
 
     //Retorna la capacidad disponible en la pila
@@ -70,5 +102,10 @@ class CrateStack : public List<Crate>{
         return tope().capacity();
     };
 
+    // Retorna la cantidad de fruta en kilogramos
+    float cantidad_kilos(){
+        int cajonesLlenos = almacenado()-1;
+        return cajonesLlenos*20.0 + cabeza().getFruitAmount();
+    }
 };
 
