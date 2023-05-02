@@ -14,5 +14,17 @@ public:
     void encolar(T a) { this->add(a); };
     void desencolar(void) { this->borrar_ultimo(); };
     T ultimo(void) { return this->cabeza(); };
-    string imprimir(string s) { return this->toPrint(s); };
+    string toPrint(string s) { return this->toPrint(s); };
+    
+    void imprimir(){
+        if (this->isEmpty()) {
+            ultimo().imprimir();
+    }
+    else {
+        this->cabeza().imprimir();
+        cout << endl;
+        this->resto()->imprimir();
+        cout<< endl;
+    }
+    }
 };

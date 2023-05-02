@@ -22,8 +22,8 @@ class Warehouse{
         void concretarOrdenR(RetailOrder order);
         void concretarOrdenW(WholesaleOrder order);
         float stockCompleto(FruitType type);
-        void checkOrderW(WholesaleOrder order);
-        void checkOrderR(RetailOrder order);
+        bool checkOrderW(WholesaleOrder order);
+        bool checkOrderR(RetailOrder order);
         //agregar status
 };
 
@@ -119,24 +119,24 @@ float Warehouse::stockCompleto(FruitType type){
 };
 
 // Intenta concretar una orden mayorista
-void Warehouse::checkOrderW(WholesaleOrder order){
+bool Warehouse::checkOrderW(WholesaleOrder order){
     float aux = order.getAmount() *20.0;
     if(order.getAmount()<=stockCompleto(order.getFruitType())){
-        concretarOrdenW(order);
+        return true;
     }
     else{
-        cout<<"No fue posible concretar la orden"<<endl;
+        return false;
     }
 };
 
 
 // Intenta concretar una orden minorista
-void Warehouse::checkOrderR(RetailOrder order){
+bool Warehouse::checkOrderR(RetailOrder order){
 
     if(order.getAmount()<=stockCompleto(order.getFruitType())){
-        concretarOrdenR(order);
+        return true;
     }
     else{
-        cout<<"No fue posible concretar la orden"<<endl;
+        return false;
     }
 };

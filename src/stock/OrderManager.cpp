@@ -5,27 +5,73 @@
 #include "../model/Client.cpp"
 #include "../utils/enum.hpp"
 #include "../structure/Queue.cpp"
+#include "../stock/Warehouse.cpp"
 
 class OrderManager{
 
     private:
-        Queue<RetailOrder> *RetailQueue = new Queue<RetailOrder>();
-        Queue<WholesaleOrder> *WholesaleQueue = new Queue<WholesaleOrder>();
+        Queue<RetailOrder> *retailQueue = new Queue<RetailOrder>();
+        Queue<WholesaleOrder> *wholesaleQueue = new Queue<WholesaleOrder>();
+        Warehouse warehouse;
     public:
 
         //Constructor y destructor
-        OrderManager();
+        OrderManager(Warehouse w){warehouse=w;};
         ~OrderManager();
 
         //Agrega a la cola una orden minorista o mayorista
-        void addRetailOrder(RetailOrder ro){RetailQueue->encolar(ro);}
-        void addWholesaleOrder(WholesaleOrder wo){WholesaleQueue->encolar(wo);}
+        void addRetailOrder(RetailOrder ro){retailQueue->encolar(ro);}
+        void addWholesaleOrder(WholesaleOrder wo){wholesaleQueue->encolar(wo);}
+        
         //Borra de la cola una orden
-        void removeRetailOrder(){RetailQueue->desencolar();}
-        void removelesaleOrder(){WholesaleQueue->desencolar();}
-
+        void removeRetailOrder(){retailQueue->desencolar();}
+        void removeWholesaleOrder(){wholesaleQueue->desencolar();}
     
+        void makeOrder();
+        void makeRetailOrder(RetailOrder order);
+        void makeWholesaleOrder(WholesaleOrder order);
 
-
-
+        void imprimir();
 };
+
+//concretar un pedido minorista
+void OrderManager::makeRetailOrder(RetailOrder order){
+    
+    order.setStatus(Status::IN_PROGRESS);
+    if(warehouse.checkOrderR(order)){
+        warehouse.concretarOrdenR(order);
+        order.setStatus(Status::FINISHED);
+        removeRetailOrder();
+    }
+    else{
+        cout<<"No fue posible concretar la orden"<<endl;
+    }
+};
+
+//concretar un pedido mayorista
+void OrderManager::makeWholesaleOrder(WholesaleOrder order){
+    
+    order.setStatus(Status::IN_PROGRESS);
+    if(warehouse.checkOrderW(order)){
+        warehouse.concretarOrdenW(order);
+        order.setStatus(Status::FINISHED);
+        removeWholesaleOrder();
+    }
+    else{
+        cout<<"No fue posible concretar la orden"<<endl;
+    }
+};
+
+void OrderManager::makeOrder(){
+    if(retailQueue->size()>0){
+        makeRetailOrder(retailQueue->tope());
+    }
+    else{
+        makeWholesaleOrder(wholesaleQueue->tope());
+    }
+}
+
+void OrderManager::imprimir(){
+    cout<<"Pedidos minoristas: " <<endl;retailQueue->imprimir();
+    cout<<"Pedidos mayoristas: " <<endl;wholesaleQueue->imprimir();
+}
