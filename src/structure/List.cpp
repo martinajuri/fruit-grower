@@ -43,7 +43,7 @@ T List<T>::cabeza(void)
 {
     if (this->isEmpty()) {
         cout << " Error, Cabeza de lista vacia";
-        return NULL;
+        return NULL; //invalid conversion from 'long long int' to 'FruitType' [-fpermissive]
     }
     return czo->getDato();
 }
@@ -140,12 +140,12 @@ template <class T> void List<T>::tomar(int n)
 }*/
 
 //devuelve el ultimo elemento de la lista
-// "could not convert '*((List<WholesaleOrder>*)this)->List<WholesaleOrder>::czo' from 'Nodo<WholesaleOrder>' to 'WholesaleOrder'",
 template <class T> T List<T>::last()
 {
 
     if (czo->getNext() == NULL) { //si es el ultimo elemento de la lista
         return *czo; //devuelve a lo que apunta el elemento
+    // "could not convert '*((List<WholesaleOrder>*)this)->List<WholesaleOrder>::czo' from 'Nodo<WholesaleOrder>' to 'WholesaleOrder'",
     }
     else this->resto()->last(); //parte recursiva (le va sacando un elemento a la lista) 
     
