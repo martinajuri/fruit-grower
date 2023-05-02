@@ -4,10 +4,9 @@
 
 using namespace std;
 
-
+#ifndef CRATE
+#define CRATE
 class Crate{
-
-
     private:
         string id;
         FruitType type;
@@ -55,5 +54,5 @@ class Crate{
                 cout << "No se puede quitar mas fruta del cajon " << id << endl; // mensaje de error
             }
         }
-
 };
+#endif

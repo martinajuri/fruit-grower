@@ -1,11 +1,11 @@
 // Representa el gestor pedidos para consultar y entregar los pedidos pendientes.
 #include <iostream>
-#include "../orders/WholesaleOrder.cpp"
-#include "../orders/RetailOrder.cpp"
-#include "../model/Client.cpp"
+#include "../orders/WholesaleOrder.h"
+#include "../orders/RetailOrder.h"
+#include "../model/Client.h"
 #include "../utils/enum.hpp"
-#include "../structure/Queue.cpp"
-#include "../stock/Warehouse.cpp"
+#include "../structure/Queue.h"
+#include "../stock/Warehouse.h"
 
 class OrderManager{
 

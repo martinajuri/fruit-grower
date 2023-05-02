@@ -1,12 +1,12 @@
 //Representa un elemento de stock en general, con propiedades como el tipo de fruta, la cantidad de cajones disponibles.
 #include <iostream>
-#include "../structure/List.cpp"
-#include "../structure/CrateStack.cpp"
-#include "../structure/Nodo.cpp"
-#include "../model/Crate.cpp"
-#include "../orders/Order.cpp"
-#include "../orders/RetailOrder.cpp"
-#include "../orders/WholesaleOrder.cpp"
+#include "../structure/List.h"
+#include "../structure/CrateStack.h"
+#include "../model/Crate.h"
+#include "../orders/RetailOrder.h"
+#include "../orders/WholesaleOrder.h"
+
+using namespace std;
 
 class Warehouse{
     private:
@@ -26,7 +26,6 @@ class Warehouse{
         bool checkOrderR(RetailOrder order);
         //agregar status
 };
-
 // Devuelve la lista indicada dependiendo el tipo de fruta que se quiere agregar
 List<CrateStack> Warehouse::listaIndicada(FruitType type){
     switch (type)

@@ -2,9 +2,9 @@
 #include <iostream>
 #include <cstdlib>
 #include <sstream>
-#include "List.cpp"
+#include "List.h"
 #include "../utils/enum.hpp"
-#include "../model/Crate.cpp"
+#include "../model/Crate.h"
 
 using namespace std;
 

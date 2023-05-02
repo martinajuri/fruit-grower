@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <sstream>
-#include "Nodo.cpp"
+#include "Nodo.h"
 
 using namespace std;
 

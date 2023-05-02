@@ -1,12 +1,14 @@
 //Representan los pedidos mayoristas, hereda de la clase "Order" 
 #include <iostream>
-#include "Order.cpp"
-#include "../model/Client.cpp"
+#include "Order.h"
+#include "../model/Client.h"
 #include "../utils/enum.hpp"
 
 
 using namespace std;
 
+#ifndef WHOLESALEORDER
+#define WHOLESALEORDER
 class WholesaleOrder : public Order{
     public:
     
@@ -20,3 +22,4 @@ class WholesaleOrder : public Order{
         
 
 };
+#endif

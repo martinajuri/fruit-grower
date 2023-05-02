@@ -1,13 +1,15 @@
 //Representan los pedidos minoristas, hereda de la clase "Order" 
 #include <iostream>
 #include <string>
-#include "Order.cpp"
-#include "../model/Client.cpp"
+#include "Order.h"
+#include "../model/Client.h"
 #include "../utils/enum.hpp"
 
 
 using namespace std;
 
+#ifndef RETAILORDER
+#define RETAILORDER
 class RetailOrder : public Order{
     public:
     
@@ -20,3 +22,4 @@ class RetailOrder : public Order{
         
 
 };
+#endif
