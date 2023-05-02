@@ -70,17 +70,18 @@ string List<T>::toPrint(string p)
     }
 }
 
+
 template <class T>
 void List<T>::imprimir(){
     
     if (this->isEmpty()) {
     }
-    else {
+    else {  
+        this->resto()->imprimir();
         cabeza().imprimir();
         cout<< endl;
-        this->resto()->imprimir();
     }
-    }
+}
 
 //Devuelve el tamaño
 template <class T> int List<T>::size()

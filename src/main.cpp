@@ -36,16 +36,16 @@ int main( int argc, char *argv[])
 
     //List<int> *lista = new List<int>;
     Queue<Client> *cola = new Queue<Client>;
-    Client *client1 = new Client();
-    Client *client2 = new Client();    
-    Client *client3 = new Client();
-    Client *client4 = new Client();
+    Client *fer = new Client("Fer");
+    Client *marcos = new Client("Marcos");    
+    Client *marti = new Client("Marti");
+    Client *sofia = new Client("Sofia");
 
 
-    cola->encolar(*client1);
-    cola->encolar(*client2);
-    cola->encolar(*client3);
-    cola->encolar(*client4);
+    cola->encolar(*fer);
+    cola->encolar(*marcos);
+    cola->encolar(*marti);
+    cola->encolar(*sofia);
 
     cola->imprimir();
 }

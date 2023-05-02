@@ -16,16 +16,5 @@ public:
     void desencolar(void) { this->borrar_ultimo(); };
     T ultimo(void) { return this->cabeza(); };
     string toPrint(string s) { return this->toPrint(s); };
-    
-    void imprimir(){
-        if (this->isEmpty()) {
-            cout <<" No tiene nada "<< endl;
-    }
-    else {
-        this->cabeza().imprimir();
-        cout << endl;
-        this->resto()->imprimir();
-        cout<< endl;
-    }
-    }
+
 };
