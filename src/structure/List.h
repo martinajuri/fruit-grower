@@ -38,6 +38,7 @@ void List<T>::add(T d)
     czo = nuevo;
 }
 
+
 //Retorna el primer nodo
 template <class T>
 T List<T>::cabeza(void)

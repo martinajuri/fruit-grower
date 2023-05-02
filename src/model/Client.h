@@ -14,8 +14,8 @@ class Client{
     public:
         Client(){name = names.at(rand()%10);};
         //Client();
-        ~Client();
         string toString(){return name + ": ";};
+        void imprimir(){cout << toString();}
 
     private:
         string name;
