@@ -1,5 +1,8 @@
 #ifndef FRUIT_H 
 #define FRUIT_H 
+#include <iostream>
+
+using namespace std;
 
 enum FruitType{
     APPLE,

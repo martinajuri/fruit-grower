@@ -38,7 +38,6 @@ void List<T>::add(T d)
     czo = nuevo;
 }
 
-
 //Retorna el primer nodo
 template <class T>
 T List<T>::cabeza(void)
@@ -145,9 +144,10 @@ template <class T> void List<T>::tomar(int n)
 template <class T> 
 T List<T>::last()
 {
-    if (czo->getNext() == NULL) { //si es el ultimo elemento de la lista
+    if ((czo->getNext())->getNext() == NULL) { //si es el ultimo elemento de la lista
+        cout << "entre al final" << endl;
         return czo->getDato(); //devuelve a lo que apunta el elemento
     // "could not convert '*((List<WholesaleOrder>*)this)->List<WholesaleOrder>::czo' from 'Nodo<WholesaleOrder>' to 'WholesaleOrder'",
     }
-    else {return this->resto()->last();} //parte recursiva (le va sacando un elemento a la lista) 
+    else {this->resto()->last();} //parte recursiva (le va sacando un elemento a la lista) 
 }

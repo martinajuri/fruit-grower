@@ -56,7 +56,7 @@ int main( int argc, char *argv[])
     lista->add(n3);
     lista->add(n4);
 
-    cout << lista->toPrint("");
+    cout << lista->toPrint("") << endl;
     cout << lista->last();
 
 
