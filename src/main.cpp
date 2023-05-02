@@ -28,8 +28,6 @@ int main( int argc, char *argv[])
    /*
    T tope() { return this->last(); };
     bool colavacia(void) { return this->isEmpty(); };
-    void encolar(T a) { this->add(a); };
-    void desencolar(void) { this->borrar_ultimo(); };
     T ultimo(void) { return this->cabeza(); };
     string toPrint(string s) { return this->toPrint(s); };
     */
@@ -48,4 +46,5 @@ int main( int argc, char *argv[])
     cola->encolar(*sofia);
 
     cola->imprimirQ();
+    cola->ultimo().imprimir();
 }

@@ -13,7 +13,6 @@ template <class T> class List {
     public:
         List() { czo = new Nodo<T>(); };
         List(Nodo<T>* n) { czo = n; };
-        //~List();
         void add(T d); 
         bool isEmpty(void){return czo->isEmpty();};
         T cabeza(void); 
