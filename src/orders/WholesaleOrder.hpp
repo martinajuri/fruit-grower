@@ -7,7 +7,8 @@
 
 using namespace std;
 
-#pragma once
+#ifndef WHOLESALE_ORDER
+#define WHOLESALE_ORDER
 class WholesaleOrder : public Order{
     public:
     
@@ -22,3 +23,4 @@ class WholesaleOrder : public Order{
         
 
 };
+#endif

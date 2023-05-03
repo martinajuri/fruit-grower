@@ -5,7 +5,8 @@
 
 using namespace std;
 
-#pragma once
+#ifndef ORDER
+#define ORDER
 class Order{
     public:
         // generator & destructor
@@ -25,5 +26,4 @@ class Order{
         FruitType type;
         Status status;
 };
-
-
+#endif

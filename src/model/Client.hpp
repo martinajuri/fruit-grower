@@ -5,12 +5,12 @@
 #include <string>
 using namespace std;
 
-#ifndef NAMES
-#define NAMES
-static const array<string, 10> names = {"Benjamín","Vicente","Martín","Matías","Joaquín","Lucía","María","Paula","Daniela","Sara"};
-#endif
 
-#pragma once
+#ifndef CLIENT
+#define CLIENT
+
+static const array<string, 10> names = {"Benjamín","Vicente","Martín","Matías","Joaquín","Lucía","María","Paula","Daniela","Sara"};
+
 class Client{
     public:
         Client(){name = names.at(rand()%10);};
@@ -23,3 +23,4 @@ class Client{
 
 
 };
+#endif
