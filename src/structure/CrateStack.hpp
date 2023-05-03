@@ -21,20 +21,20 @@ class CrateStack : public List<Crate>{
     public:
         CrateStack(FruitType f){List<Crate>(); frutaAlmacenada = f;};
         CrateStack();
-        Crate tope(void){return this->cabeza();};
+        Crate* tope(void){return this->cabeza();};
         bool pilaVacia(){return this->isEmpty();};
         bool pilaLlena(){return this->size() == MAX;};
         FruitType getFrutaAlmacenada(){return frutaAlmacenada;};
          //devuelve la cantidad de cajones apilados
         int almacenado(){return this->size();};
         string getStringDeFruta(){return fruitTypeToString(frutaAlmacenada);};
-        void apilar(Crate c);
+        void apilar(Crate *c);
         void desapilar();
         void desapilarKilos(float kilos);
         void desapilarCajonEntero(int n);
         float stackCapacity();
         float capacidad_tope();
         float cantidad_kilos();
-        void imprimirStack(){cout << "Pila de cajones de "<< getStringDeFruta() << ": "; imprimir();}
+        void imprimirStack(){cout << "Pila de cajones de "<< getStringDeFruta() << ": "<<endl; imprimir();}
 };
 #endif

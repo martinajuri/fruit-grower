@@ -9,7 +9,7 @@ using namespace std;
 #ifndef LIST_CPP
 #define LIST_CPP
 template <class T>
-void List<T>::add(T d){
+void List<T>::add(T* d){
     Nodo<T>* nuevo = new Nodo<T>(d);
     nuevo->setNext(czo);
     czo = nuevo;
@@ -17,7 +17,7 @@ void List<T>::add(T d){
 
 //Retorna el primer nodo
 template <class T>
-T List<T>::cabeza(void){
+T* List<T>::cabeza(void){
     if (this->isEmpty()) {
         return czo->getDato(); //invalid conversion from 'long long int' to 'FruitType' [-fpermissive]
     }
@@ -48,8 +48,8 @@ template <class T>
 void List<T>::imprimir(){
     
     if (!this->isEmpty()){
-        cabeza().imprimir();
-        cout<< endl;
+        cabeza()->imprimir();
+        //cout<< endl;
         this->resto()->imprimir();
     }
 };
@@ -61,7 +61,7 @@ void List<T>::imprimirQ(){
     if (this->isEmpty()) {
     }else {  
         this->resto()->imprimirQ();
-        cabeza().imprimir();
+        cabeza()->imprimir();
         cout<< endl;
     }
 };
@@ -83,9 +83,9 @@ template <class T> void List<T>::borrar(void){
 //borra el ultimo
 template <class T> void List<T>::borrar_ultimo(){ 
     if (!this->isEmpty()) {
-        if ((czo->getNext())->getNext() == NULL) {
+        if ((czo->getNext())->getNext() == nullptr) {
             delete czo->getNext();
-            czo->setNext(NULL);
+            czo->setNext(nullptr);
         }
         else this->resto()->borrar_ultimo();
     }
@@ -117,8 +117,8 @@ template <class T> void List<T>::tomar(int n){
 
 //devuelve el ultimo elemento de la lista
 template <class T> 
-T List<T>::last(){
-    if ((czo->getNext())->getNext() == NULL) { //si es el ultimo elemento de la lista
+T* List<T>::last(){
+    if ((czo->getNext())->getNext() == nullptr) { //si es el ultimo elemento de la lista
         return czo->getDato(); //devuelve a lo que apunta el elemento
     // "could not convert '*((List<WholesaleOrder>*)this)->List<WholesaleOrder>::czo' from 'Nodo<WholesaleOrder>' to 'WholesaleOrder'",
     }

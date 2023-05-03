@@ -13,9 +13,9 @@ template <class T> class List {
     public:
         List() { czo = new Nodo<T>(); };
         List(Nodo<T>* n) { czo = n; };
-        void add(T d); 
+        void add(T* d); 
         bool isEmpty(void){return czo->isEmpty();};
-        T cabeza(void); 
+        T* cabeza(void); 
         List* resto(void); 
         string toPrint(string p);
         int size();
@@ -24,7 +24,7 @@ template <class T> class List {
         void concat(List<T>* l1);
         List<T>* copy(void);
         void tomar(int n);
-        T last();
+        T* last();
         void imprimir();
         void imprimirQ();
 };
