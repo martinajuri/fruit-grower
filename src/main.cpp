@@ -1,12 +1,12 @@
 #include <iostream>
 #include "stock\Warehouse.cpp"
+#include "model\Crate.cpp"
 
 #include "utils\enum.hpp"
 
 /*
 #include "stock\OrderManager.cpp"
 #include "structure\List.cpp"
-#include "model\Crate.cpp"
 #include "model\Crate.hpp"
 #include "structure\CrateStack.cpp"
 #include "structure\Queue.hpp"
@@ -32,9 +32,7 @@ int main( int argc, char *argv[])
     WholesaleOrder *orden2 = new WholesaleOrder(5,*client2,FruitType::BANANA);
 
     //List<int> *lista = new List<int>;
-    Crate *crate1 = new Crate("crate1", FruitType::APPLE, 15.0f);
-    Crate *crate2 = new Crate("crate2", FruitType::APPLE,7.0f);
-    Crate *crate3 = new Crate("crate3", FruitType::APPLE,10.0f);
+
     
     CrateStack *pila = new CrateStack(FruitType::APPLE);
 
@@ -73,5 +71,14 @@ int main( int argc, char *argv[])
     */
 
     Warehouse *deposito = new Warehouse();
-    
+    Crate *crate1 = new Crate("crate1", FruitType::APPLE, 15.0f);
+    Crate *crate2 = new Crate("crate2", FruitType::BANANA,7.0f);
+    Crate *crate3 = new Crate("crate3", FruitType::ORANGE,10.0f);
+
+    deposito->addFruit(crate1);
+    deposito->addFruit(crate2);
+    deposito->addFruit(crate3);
+
+
+    deposito->imprimirWarehouse();
 }

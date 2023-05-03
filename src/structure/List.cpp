@@ -53,6 +53,9 @@ void List<T>::imprimir(){
         //cout<< endl;
         this->resto()->imprimir();
     }
+    else{
+        cout << "Lista vacía" << endl;
+    }
 };
 
 //imprime un string, FIFO

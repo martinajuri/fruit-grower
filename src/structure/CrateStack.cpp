@@ -10,7 +10,8 @@
 #include "CrateStack.hpp"
 
 using namespace std;
-
+#ifndef CRATESTACK_CPP
+#define CRATESTACK_CPP
 //Apila un caja
 void CrateStack::apilar(Crate *c){   
     if (pilaVacia()) { // si la pila está vacía
@@ -92,3 +93,4 @@ float CrateStack::cantidad_kilos(){
 };
 
 
+#endif

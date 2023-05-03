@@ -32,5 +32,6 @@ class Warehouse{
         float stockCompleto(FruitType type);
         bool checkOrderW(WholesaleOrder order);
         bool checkOrderR(RetailOrder order);
+        void imprimirWarehouse();
 };
 #endif
