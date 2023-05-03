@@ -1,11 +1,9 @@
 #include <iostream>
+#include "stock\Warehouse.cpp"
 
 #include "utils\enum.hpp"
-#include "structure\List.cpp"
-#include "model\Crate.cpp"
-#include "structure\CrateStack.cpp"
+
 /*
-#include "stock\Warehouse.cpp"
 #include "stock\OrderManager.cpp"
 #include "structure\List.cpp"
 #include "model\Crate.cpp"
@@ -16,6 +14,9 @@
 #include "model\Client.hpp"
 #include "orders\RetailOrder.hpp"
 #include "orders\WholesaleOrder.hpp"
+#include "structure\List.cpp"
+#include "model\Crate.cpp"
+#include "structure\CrateStack.cpp"
 */
 
 
@@ -56,10 +57,6 @@ int main( int argc, char *argv[])
     WholesaleOrder *ordenSofi = new WholesaleOrder(2,*sofia,FruitType::BANANA);
     WholesaleOrder *ordenFer = new WholesaleOrder(10, *fer,FruitType::ORANGE);
 
-    Warehouse *deposito = new Warehouse();
-
-    */
-
     List<int> *lista = new List<int>;
     Crate *crate1 = new Crate("crate1", FruitType::APPLE, 15.0f);
     Crate *crate2 = new Crate("crate2", FruitType::APPLE,7.0f);
@@ -73,9 +70,8 @@ int main( int argc, char *argv[])
 
     pila->imprimirStack();
 
+    */
 
-
-
-   
-
+    Warehouse *deposito = new Warehouse();
+    
 }

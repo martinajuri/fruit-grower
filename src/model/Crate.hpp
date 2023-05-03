@@ -5,8 +5,8 @@
 
 using namespace std;
 
-#ifndef CRATE
-#define CRATE
+#ifndef CRATE_HPP
+#define CRATE_HPP
 class Crate{
     private:
         string id;

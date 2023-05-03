@@ -6,8 +6,8 @@
 using namespace std;
 
 
-#ifndef CLIENT
-#define CLIENT
+#ifndef CLIENT_HPP
+#define CLIENT_HPP
 
 static const array<string, 10> names = {"Benjamín","Vicente","Martín","Matías","Joaquín","Lucía","María","Paula","Daniela","Sara"};
 

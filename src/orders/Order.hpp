@@ -5,8 +5,8 @@
 
 using namespace std;
 
-#ifndef ORDER
-#define ORDER
+#ifndef ORDER_HPP
+#define ORDER_HPP
 class Order{
     public:
         // generator & destructor

@@ -8,13 +8,13 @@
 
 using namespace std;
 
-#ifndef RETAIL_ORDER
-#define RETAIL_ORDER
+#ifndef RETAIL_ORDER_HPP
+#define RETAIL_ORDER_HPP
 class RetailOrder : public Order
 {
 public:
     RetailOrder(float weight, Client client, FruitType type) : Order(client, type) { this->weight = weight; };
-    RetailOrder();
+    RetailOrder(): Order(){weight=0.0f;};
     float getAmount() { return weight; };
     void imprimir() { cout << getClient().toString() << fixed << setprecision(1)<< getAmount() << " kg de " << fruitTypeToString(getFruitType()) << " Estado: " << statusToString(getStatus())<<endl; }
 
