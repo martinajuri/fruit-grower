@@ -13,7 +13,6 @@ class Crate{
         FruitType type;
         float fruitAmount = 0.0f;
         float maxWeight = 20.0f;
-        void setFruitAmount(int n){fruitAmount=n;};
 
     public:
         //generator & destructor
@@ -24,6 +23,7 @@ class Crate{
         string getId(){return id;};
         FruitType getType(){return type;};
         float getFruitAmount(){return fruitAmount;};
+        void setFruitAmount(float n){fruitAmount=n;};
 
         //check capacity
         bool isEmpty(){return (getFruitAmount()==0);}; // devuelve true si la cantidad de fruta es 0

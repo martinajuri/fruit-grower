@@ -40,12 +40,15 @@ int main( int argc, char *argv[])
 
   
     Crate *crate1 = new Crate("crate1", FruitType::APPLE, 15.0f);
-    Crate *crate2 = new Crate("crate2", FruitType::BANANA,2.0f);
+    Crate *crate2 = new Crate("crate2", FruitType::APPLE,2.0f);
     
     CrateStack *pila = new CrateStack(FruitType::APPLE);
 
     pila->apilar(*crate1);
     pila->apilar(*crate2);
+
+    //no funciona el apilar porque tengo que pasar el tope como puntero
+    //DEFINIR TOPE COMO PUNTERO
 
     pila->imprimir();
 

@@ -16,7 +16,9 @@ using namespace std;
 //Apila un caja
 void CrateStack::apilar(Crate c){   
     cout<<"entro al metodo apilar"<<endl;    
-    if(tope().hasCapacity() && !c.hasCapacity()){
+    if (pilaVacia()) { // si la pila está vacía
+       this->add(c);
+    } else if(tope().hasCapacity() && !c.hasCapacity()){
         Crate cajaAux = tope();
         desapilar();
         this->add(c);
@@ -26,6 +28,7 @@ void CrateStack::apilar(Crate c){
         if(tope().capacity() >= c.getFruitAmount()){
     cout<<"segundo if"<<endl;    
             tope().addFruit(c.getFruitAmount());
+            tope().imprimir();
         }else{
     cout<<"primer else"<<endl;    
             float aux = tope().capacity();
@@ -33,6 +36,22 @@ void CrateStack::apilar(Crate c){
             tope().deleteFruit(aux);
         }
     }else{cout<<"ultimo else"<<endl;    this->add(c);} 
+    // if (pilaVacia()) { // si la pila está vacía
+    //     this->add(c);
+    // } else if (tope().isEmpty()) { // si la caja superior de la pila está vacía
+    //     desapilar(); // eliminamos la caja vacía
+    //     this->add(c); // agregamos la nueva caja
+    // } else if (tope().hasCapacity()) { // si la caja superior de la pila tiene capacidad
+    //     if (tope().capacity() >= c.getFruitAmount()) {
+    //         tope().addFruit(c.getFruitAmount());
+    //     } else {
+    //         float aux = tope().capacity();
+    //         tope().addFruit(tope().capacity());
+    //         tope().deleteFruit(aux);
+    //     }
+    // } else { // si la caja superior de la pila no tiene capacidad
+    //     this->add(c);
+    // }
 };
 
 //Desapila una caja
