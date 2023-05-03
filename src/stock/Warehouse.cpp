@@ -29,24 +29,24 @@ List<CrateStack> Warehouse::listaIndicada(FruitType type){
 };
 
 // Llega al deposito un cajon con una cantida de una fruta 
-void Warehouse::addFruit(Crate c){
+void Warehouse::addFruit(Crate *c){
 
-    List<CrateStack> list = listaIndicada(c.getType());
+    List<CrateStack> list = listaIndicada(c->getType());
 
     // Si todo lo del cajon entra en la ultima pila, este se agrega
-    if(list.cabeza().stackCapacity()>= c.getFruitAmount()){
+    if(list.cabeza().stackCapacity()>= c->getFruitAmount()){
         list.cabeza().apilar(c);
     }
     else{
         //Apilo la cantidad de fruta que entre 
         float aux= list.cabeza().stackCapacity();
-        Crate *crateAux = new Crate("Cajon auxiliar", c.getType(),aux);
+        Crate *crateAux = new Crate("Cajon auxiliar", c->getType(),aux);
         list.cabeza().apilar(*crateAux);
-        c.deleteFruit(aux);
+        c->deleteFruit(aux);
 
         //Creo una nueva pila de cajones y apilo el sobrante
-        CrateStack *pilaNueva = new CrateStack(c.getType());
-        list.add(*pilaNueva);
+        CrateStack *pilaNueva = new CrateStack(c->getType());
+        list.add(pilaNueva);
         pilaNueva->apilar(c);
     }
 };

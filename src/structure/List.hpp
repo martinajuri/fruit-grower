@@ -9,23 +9,34 @@ using namespace std;
 #define LIST_HPP
 template <class T> class List {
     private: 
-        Nodo<T>* czo;  
+        Nodo<T>* czo;  //Puntero al primer nodo de la lista
     public:
+    //Constructores
         List() { czo = new Nodo<T>(); };
         List(Nodo<T>* n) { czo = n; };
+
+    //Principales
+        T* cabeza(void);
+        List* resto(void);
+        T* last();
+
+    //Modificadores
         void add(T* d); 
-        bool isEmpty(void){return czo->isEmpty();};
-        T* cabeza(void); 
-        List* resto(void); 
-        string toPrint(string p);
-        int size();
         void borrar(void); 
         void borrar_ultimo();
-        void concat(List<T>* l1);
-        List<T>* copy(void);
-        void tomar(int n);
-        T* last();
+
+    //Tamaño
+        bool isEmpty(void){return czo->isEmpty();};
+        int size();
+
+    //Para el cout
         void imprimir();
         void imprimirQ();
+
+    //No Usados
+        void concat(List<T>* l1);
+        string toPrint(string p);
+        List<T>* copy(void);
+        void tomar(int n);
 };
 #endif

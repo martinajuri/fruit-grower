@@ -9,41 +9,42 @@ using namespace std;
 #ifndef LIST_CPP
 #define LIST_CPP
 template <class T>
+
+//Agrega un puntero de un objeto T a la lista
 void List<T>::add(T* d){
     Nodo<T>* nuevo = new Nodo<T>(d);
     nuevo->setNext(czo);
     czo = nuevo;
 };
 
-//Retorna el primer nodo
+//Retorna el puntero al primer objeto T de la lista
 template <class T>
 T* List<T>::cabeza(void){
     if (this->isEmpty()) {
-        return czo->getDato(); //invalid conversion from 'long long int' to 'FruitType' [-fpermissive]
+        return czo->getDato(); 
     }
     return czo->getDato();
 };
 
-//retorna el puntero al "resto" de la lista
-//resto = lo que queda de la lista sin la cabeza
+//Retorna el puntero al "resto" de la lista
 template <class T>
 List<T>* List<T>::resto(void){
     List* l = new List(czo->getNext());
     return (l);
 };
 
-template <class T>
-string List<T>::toPrint(string p){
-    if (this->isEmpty()) {
-        return p;
-    }else {
-        ostringstream stm;
-        stm << this->cabeza() << "-" << this->resto()->toPrint(p);
-        return stm.str();
+
+//Devuelve el puntero al ultimo objeto de la lista
+template <class T> 
+T* List<T>::last(){
+    if ((czo->getNext())->getNext() == nullptr) { //cond. de corte
+        return czo->getDato(); //devuelve a lo que apunta el elemento
     }
+    else {return this->resto()->last();} //parte recursiva
 };
 
-//imprime listas, el ultimo en ser agregado es el que se muestra primero
+
+//imprime un string, LIFO
 template <class T>
 void List<T>::imprimir(){
     
@@ -54,7 +55,7 @@ void List<T>::imprimir(){
     }
 };
 
-//imprime colas: el primero en llegar es el que se muestra primero
+//imprime un string, FIFO
 template <class T>
 void List<T>::imprimirQ(){
     
@@ -66,13 +67,13 @@ void List<T>::imprimirQ(){
     }
 };
 
-//Devuelve el tamaño
+//Devuelve la cantidad de nodos
 template <class T> int List<T>::size(){
     if (this->isEmpty()) return 0;
     return 1 + this->resto()->size();
 };
 
-//borra el nodo cabeza
+//Borra el nodo cabeza y asigna al segundo como czo
 template <class T> void List<T>::borrar(void){ 
     if (!this->isEmpty()) {
         Nodo<T>* tmp = czo;
@@ -80,7 +81,7 @@ template <class T> void List<T>::borrar(void){
         delete tmp;
     }
 };
-//borra el ultimo
+//Borra el ultimo nodo
 template <class T> void List<T>::borrar_ultimo(){ 
     if (!this->isEmpty()) {
         if ((czo->getNext())->getNext() == nullptr) {
@@ -115,13 +116,14 @@ template <class T> void List<T>::tomar(int n){
     }
 };
 
-//devuelve el ultimo elemento de la lista
-template <class T> 
-T* List<T>::last(){
-    if ((czo->getNext())->getNext() == nullptr) { //si es el ultimo elemento de la lista
-        return czo->getDato(); //devuelve a lo que apunta el elemento
-    // "could not convert '*((List<WholesaleOrder>*)this)->List<WholesaleOrder>::czo' from 'Nodo<WholesaleOrder>' to 'WholesaleOrder'",
+template <class T>
+string List<T>::toPrint(string p){
+    if (this->isEmpty()) {
+        return p;
+    }else {
+        ostringstream stm;
+        stm << this->cabeza() << "-" << this->resto()->toPrint(p);
+        return stm.str();
     }
-    else {return this->resto()->last();} //parte recursiva (le va sacando un elemento a la lista) 
 };
 #endif

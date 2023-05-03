@@ -1,8 +1,9 @@
 #include <iostream>
 
 #include "utils\enum.hpp"
-
-
+#include "structure\List.cpp"
+#include "model\Crate.cpp"
+#include "structure\CrateStack.cpp"
 /*
 #include "stock\Warehouse.cpp"
 #include "stock\OrderManager.cpp"
@@ -59,6 +60,18 @@ int main( int argc, char *argv[])
 
     */
 
+    List<int> *lista = new List<int>;
+    Crate *crate1 = new Crate("crate1", FruitType::APPLE, 15.0f);
+    Crate *crate2 = new Crate("crate2", FruitType::APPLE,7.0f);
+    Crate *crate3 = new Crate("crate3", FruitType::APPLE,10.0f);
+    
+    CrateStack *pila = new CrateStack(FruitType::APPLE);
+
+    pila->apilar(crate1);
+    pila->apilar(crate2);
+    pila->apilar(crate3);
+
+    pila->imprimirStack();
 
 
 
