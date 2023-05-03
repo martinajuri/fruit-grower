@@ -5,11 +5,11 @@
 
 using namespace std;
 
-#pragma once
+#ifndef LIST_HPP
+#define LIST_HPP
 template <class T> class List {
-
-    private: Nodo<T>* czo;
-     
+    private: 
+        Nodo<T>* czo;  
     public:
         List() { czo = new Nodo<T>(); };
         List(Nodo<T>* n) { czo = n; };
@@ -27,5 +27,5 @@ template <class T> class List {
         T last();
         void imprimir();
         void imprimirQ();
-   
 };
+#endif

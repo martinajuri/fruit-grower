@@ -10,7 +10,8 @@ using namespace std;
 
 #define MAX  10;
 
-#pragma once
+#ifndef CRATESTACK_HPP
+#define CRATESTACK_HPP
 class CrateStack : public List<Crate>{
     private:
         FruitType frutaAlmacenada;   
@@ -33,4 +34,4 @@ class CrateStack : public List<Crate>{
         float capacidad_tope();
         float cantidad_kilos();
 };
-
+#endif

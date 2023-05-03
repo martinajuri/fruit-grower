@@ -1,14 +1,15 @@
 //Representa un elemento de stock en general, con propiedades como el tipo de fruta, la cantidad de cajones disponibles.
 #include <iostream>
 #include "../structure/List.hpp"
-#include "../structure/CrateStack.hpp"
+#include "../structure/CrateStack.cpp"
 #include "../model/Crate.hpp"
 #include "../orders/RetailOrder.hpp"
 #include "../orders/WholesaleOrder.hpp"
 
 using namespace std;
 
-#pragma once
+#ifndef WAREHOUSE_HPP
+#define WAREHOUSE_HPP
 class Warehouse{
     private:
         List<CrateStack> *appleList = new List<CrateStack>;
@@ -25,3 +26,4 @@ class Warehouse{
         bool checkOrderW(WholesaleOrder order);
         bool checkOrderR(RetailOrder order);
 };
+#endif

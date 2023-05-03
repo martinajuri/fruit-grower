@@ -20,8 +20,8 @@ string fruitTypeToString(FruitType f) {
 }
 #endif 
 
-#ifndef STATUS 
-#define STATUS 
+#ifndef STATUS_H
+#define STATUS_H
 enum Status{
     PENDING,
     IN_PROGRESS,

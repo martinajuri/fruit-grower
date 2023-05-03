@@ -5,8 +5,8 @@
 #include "../model/Client.hpp"
 #include "../utils/enum.hpp"
 #include "../structure/Queue.hpp"
-#include "../stock/Warehouse.hpp"
-#include "../stock/OrderManager.hpp"
+#include "Warehouse.cpp"
+#include "OrderManager.hpp"
 
 
 //atender un pedido minorista

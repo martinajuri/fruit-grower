@@ -4,7 +4,8 @@
 
 using namespace std;
 
-#pragma once
+#ifndef NODO_HPP
+#define NODO_HPP
 template <class T> class Nodo {
 private:
     T dato;
@@ -18,4 +19,4 @@ public:
     Nodo* getNext() { return next; };
     bool isEmpty() { return next == NULL; }
 };
-
+#endif

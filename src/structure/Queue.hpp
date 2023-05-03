@@ -5,7 +5,8 @@
 
 using namespace std;
 
-#pragma once
+#ifndef QUEUE_HPP
+#define QUEUE_HPP
 template <class T> class Queue :public List<T> {
 public:
     Queue() { List<T>(); };
@@ -17,3 +18,4 @@ public:
     string toPrint(string s) { return this->toPrint(s); };
 
 };
+#endif

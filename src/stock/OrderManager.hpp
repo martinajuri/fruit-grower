@@ -5,9 +5,10 @@
 #include "../model/Client.hpp"
 #include "../utils/enum.hpp"
 #include "../structure/Queue.hpp"
-#include "../stock/Warehouse.hpp"
+#include "../stock/Warehouse.cpp"
 
-#pragma once
+#ifndef ORDER_MANAGER_HPP
+#define ORDER_MANAGER_HPP
 class OrderManager{
 
     private:
@@ -34,3 +35,4 @@ class OrderManager{
 
         void imprimir();
 };
+#endif
