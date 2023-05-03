@@ -11,8 +11,6 @@
 
 using namespace std;
 
-#define MAX  10;
-
 //Apila un caja
 void CrateStack::apilar(Crate *c){   
     if (pilaVacia()) { // si la pila está vacía
@@ -38,7 +36,7 @@ void CrateStack::apilar(Crate *c){
         else{this->add(c);} 
 };
 
-//Desapila una caja
+// Desapila una caja
 void CrateStack::desapilar(void){
     if(!pilaVacia()){
         this->borrar();
@@ -72,8 +70,14 @@ void CrateStack::desapilarCajonEntero(int n){
 
 //Retorna la capacidad disponible en la pila
 float CrateStack::stackCapacity(){
-    float aux= MAX - almacenado();
-    return ((aux*20.0) + tope()->capacity());
+    
+    cout << "MAX "<< MAX << endl;
+
+    int aux = MAX - almacenado();
+
+    cout << "aux "<< aux <<endl;
+    
+    return ((aux*20.0) + cabeza()->capacity());
 };
 
 // Retorna la capacidad de la caja que se encuentra arriba

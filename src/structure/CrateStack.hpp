@@ -10,13 +10,12 @@
 
 using namespace std;
 
-#define MAX  10;
-
 #ifndef CRATESTACK_HPP
 #define CRATESTACK_HPP
 class CrateStack : public List<Crate>{
     private:
         FruitType frutaAlmacenada;   
+        const int MAX = 10;
         
     public:
         CrateStack(FruitType f){List<Crate>(); frutaAlmacenada = f;};
@@ -28,8 +27,8 @@ class CrateStack : public List<Crate>{
          //devuelve la cantidad de cajones apilados
         int almacenado(){return this->size();};
         string getStringDeFruta(){return fruitTypeToString(frutaAlmacenada);};
-        void apilar(Crate *c);
-        void desapilar();
+        void apilar(Crate *c); 
+        void desapilar(); 
         void desapilarKilos(float kilos);
         void desapilarCajonEntero(int n);
         float stackCapacity();
