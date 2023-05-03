@@ -3,8 +3,10 @@
 #include <cstdlib>
 #include <sstream>
 #include "List.hpp"
+#include "List.cpp"
 #include "../utils/enum.hpp"
 #include "../model/Crate.hpp"
+#include "../model/Crate.cpp"
 #include "CrateStack.hpp"
 
 using namespace std;
@@ -12,21 +14,25 @@ using namespace std;
 #define MAX  10;
 
 //Apila un caja
-void CrateStack::apilar(Crate c){       
+void CrateStack::apilar(Crate c){   
+    cout<<"entro al metodo apilar"<<endl;    
     if(tope().hasCapacity() && !c.hasCapacity()){
         Crate cajaAux = tope();
         desapilar();
         this->add(c);
         this->add(cajaAux);
+    cout<<"primer if"<<endl;    
     }else if(tope().hasCapacity()){
         if(tope().capacity() >= c.getFruitAmount()){
+    cout<<"segundo if"<<endl;    
             tope().addFruit(c.getFruitAmount());
         }else{
+    cout<<"primer else"<<endl;    
             float aux = tope().capacity();
             tope().addFruit(tope().capacity());
             tope().deleteFruit(aux);
         }
-    }else{this->add(c);} 
+    }else{cout<<"ultimo else"<<endl;    this->add(c);} 
 };
 
 //Desapila una caja

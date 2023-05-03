@@ -1,8 +1,11 @@
 #include <iostream>
-#include "model\Client.hpp"
-/*
 #include "model\Crate.cpp"
+#include "model\Crate.hpp"
 #include "structure\CrateStack.cpp"
+#include "structure\CrateStack.hpp"
+
+/*
+#include "model\Client.hpp"
 #include "utils\enum.hpp"
 #include "orders\RetailOrder.hpp"
 #include "orders\WholesaleOrder.hpp"
@@ -27,18 +30,23 @@ int main( int argc, char *argv[])
     WholesaleOrder *orden2 = new WholesaleOrder(5,*client2,FruitType::BANANA);
 
     //List<int> *lista = new List<int>;
-    Crate *crate1 = new Crate("crate1", FruitType::APPLE, 15.0f);
-    Crate *crate2 = new Crate("crate2", FruitType::BANANA,2.0f);
-
-    */
-
+    
+    
     Client *fer = new Client("Fer");
     Client *marcos = new Client("Marcos");    
     Client *marti = new Client("Marti");
-    Client *sofia = new Client("Sofia");    
-
-    //CrateStack *pila = new CrateStack(FruitType::APPLE);
+    Client *sofia = new Client("Sofia");  
+    */
 
   
+    Crate *crate1 = new Crate("crate1", FruitType::APPLE, 15.0f);
+    Crate *crate2 = new Crate("crate2", FruitType::BANANA,2.0f);
+    
+    CrateStack *pila = new CrateStack(FruitType::APPLE);
+
+    pila->apilar(*crate1);
+    pila->apilar(*crate2);
+
+    pila->imprimir();
 
 }

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string> 
+#include <iomanip>
 #include "../utils/enum.hpp"
 
 using namespace std;
@@ -12,13 +13,12 @@ class Crate{
         FruitType type;
         float fruitAmount = 0.0f;
         float maxWeight = 20.0f;
-
         void setFruitAmount(int n){fruitAmount=n;};
 
     public:
         //generator & destructor
         Crate(string i, FruitType t, float fA){id=i;type=t;fruitAmount=fA;}; 
-        Crate(); 
+        Crate() : id(""), type(FruitType::APPLE), fruitAmount(0.0f), maxWeight(20.0f) {}
 
         //getters
         string getId(){return id;};
@@ -31,7 +31,8 @@ class Crate{
         float capacity(){return maxWeight - fruitAmount;} // devuelve la cantidad de fruta que puede ser agregada
     
         //to string
-        string toString(){return "Cajon " + id + ": " +  to_string(getFruitAmount()) + " " + fruitTypeToString(type);}
+        //string toString(){return "Cajon " + id + ": " +  to_string(getFruitAmount()) + " " + fruitTypeToString(type) ;}
+        void imprimir(){cout << "Cajon " << id << ": " <<fixed<< setprecision(1)<<getFruitAmount() << " kg de " << fruitTypeToString(type)<<endl;}
 
         // add fruit to crate
         void addFruit(float n);

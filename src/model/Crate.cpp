@@ -4,7 +4,8 @@
 #include "Crate.hpp"
 
 using namespace std;
-
+#ifndef CLIENT
+#define CLIENT
 void Crate::addFruit(float n) {
     if (capacity()>= n) { // Si hay capacidad mayor o igual a la cantidad que se quiere agregar
         setFruitAmount(getFruitAmount()+n); // Se suma la cantidad de fruta al cajon
@@ -23,3 +24,4 @@ void Crate::deleteFruit(float n) {
         cout << "No se puede quitar mas fruta del cajon " << id << endl; // mensaje de error
     }
 }
+#endif

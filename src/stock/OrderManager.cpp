@@ -5,6 +5,7 @@
 #include "../model/Client.hpp"
 #include "../utils/enum.hpp"
 #include "../structure/Queue.hpp"
+#include "Warehouse.hpp"
 #include "Warehouse.cpp"
 #include "OrderManager.hpp"
 

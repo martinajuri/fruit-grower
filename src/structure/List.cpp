@@ -6,6 +6,8 @@
 
 using namespace std;
 
+#ifndef LIST_CPP
+#define LIST_CPP
 template <class T>
 void List<T>::add(T d){
     Nodo<T>* nuevo = new Nodo<T>(d);
@@ -46,6 +48,7 @@ template <class T>
 void List<T>::imprimir(){
     
     if (this->isEmpty()){
+        cout<<"Esta vacia"<<endl;
     }else {
         cabeza().imprimir();
         cout<< endl;
@@ -123,3 +126,4 @@ T List<T>::last(){
     }
     else {return this->resto()->last();} //parte recursiva (le va sacando un elemento a la lista) 
 };
+#endif
