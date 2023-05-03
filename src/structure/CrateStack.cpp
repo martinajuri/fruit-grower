@@ -17,25 +17,29 @@ using namespace std;
 void CrateStack::apilar(Crate c){   
     cout<<"entro al metodo apilar"<<endl;    
     if (pilaVacia()) { // si la pila está vacía
-       this->add(c);
-    } else if(tope().hasCapacity() && !c.hasCapacity()){
-        Crate cajaAux = tope();
-        desapilar();
-        this->add(c);
-        this->add(cajaAux);
-    cout<<"primer if"<<endl;    
-    }else if(tope().hasCapacity()){
-        if(tope().capacity() >= c.getFruitAmount()){
-    cout<<"segundo if"<<endl;    
-            tope().addFruit(c.getFruitAmount());
-            tope().imprimir();
-        }else{
-    cout<<"primer else"<<endl;    
-            float aux = tope().capacity();
-            tope().addFruit(tope().capacity());
-            tope().deleteFruit(aux);
+       this->add(c); // funciona
+    } else //si no esta vacia
+        if(tope().hasCapacity() && !c.hasCapacity()){ // cajon que quiero agregar esta lleno
+            Crate cajaAux = tope(); //funciona
+            desapilar();
+            this->add(c);
+            this->add(cajaAux);
+            cout<<"primer if"<<endl;    
+        }else if(tope().hasCapacity()){ // si ambos cajones no estan llenos (tiene capacidad)
+            if(tope().capacity() >= c.getFruitAmount()){ // si la fruta del cajon nuevo entra en el top (el cojon de arriba)
+                cout<<"segundo if"<<endl;    
+                tope().addFruit(c.getFruitAmount()); //no funciona
+                tope().imprimir();
+            }
+            else{ // si la cantidad de fruta del nuevo cajon no entra 
+                cout<<"primer else"<<endl;    
+                float aux = tope().capacity();
+                tope().addFruit(tope().capacity());
+                c.deleteFruit(aux);
+            }
         }
-    }else{cout<<"ultimo else"<<endl;    this->add(c);} 
+        else{cout<<"ultimo else"<<endl;    this->add(c);} 
+        //
     // if (pilaVacia()) { // si la pila está vacía
     //     this->add(c);
     // } else if (tope().isEmpty()) { // si la caja superior de la pila está vacía

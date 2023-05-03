@@ -47,9 +47,7 @@ string List<T>::toPrint(string p){
 template <class T>
 void List<T>::imprimir(){
     
-    if (this->isEmpty()){
-        cout<<"Esta vacia"<<endl;
-    }else {
+    if (!this->isEmpty()){
         cabeza().imprimir();
         cout<< endl;
         this->resto()->imprimir();

@@ -35,5 +35,6 @@ class CrateStack : public List<Crate>{
         float stackCapacity();
         float capacidad_tope();
         float cantidad_kilos();
+        void imprimirStack(){cout << "Pila de cajones de "<< getStringDeFruta() << ": "; imprimir();}
 };
 #endif
