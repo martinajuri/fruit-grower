@@ -23,16 +23,16 @@ class OrderManager{
         OrderManager();
 
         //Agrega a la cola una orden minorista o mayorista
-        void addRetailOrder(RetailOrder ro){retailQueue->encolar(ro);}
-        void addWholesaleOrder(WholesaleOrder wo){wholesaleQueue->encolar(wo);}
+        void addRetailOrder(RetailOrder *ro){retailQueue->encolar(ro);}
+        void addWholesaleOrder(WholesaleOrder *wo){wholesaleQueue->encolar(wo);}
         
         //Borra de la cola una orden
         void removeRetailOrder(){retailQueue->desencolar();}
         void removeWholesaleOrder(){wholesaleQueue->desencolar();}
     
         void makeOrder(bool b);
-        void makeRetailOrder(RetailOrder order);
-        void makeWholesaleOrder(WholesaleOrder order);
+        void makeRetailOrder(RetailOrder *order);
+        void makeWholesaleOrder(WholesaleOrder *order);
 
         void imprimir();
 };

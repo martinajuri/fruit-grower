@@ -62,7 +62,7 @@ void List<T>::imprimirQ(){
     }else {  
         this->resto()->imprimirQ();
         cabeza()->imprimir();
-        cout<< endl;
+        //cout<< endl;
     }
 };
 

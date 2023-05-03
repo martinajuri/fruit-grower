@@ -11,11 +11,11 @@
 
 
 //atender un pedido minorista
-void OrderManager::makeRetailOrder(RetailOrder order){
-    order.setStatus(Status::IN_PROGRESS);
-    if(warehouse.checkOrderR(order)){
-        warehouse.concretarOrdenR(order);
-        order.setStatus(Status::FINISHED);
+void OrderManager::makeRetailOrder(RetailOrder *order){
+    order->setStatus(Status::IN_PROGRESS);
+    if(warehouse.checkOrderR(*order)){
+        warehouse.concretarOrdenR(*order);
+        order->setStatus(Status::FINISHED);
         removeRetailOrder();
     }
     else{
@@ -24,13 +24,13 @@ void OrderManager::makeRetailOrder(RetailOrder order){
 };
 
 //atender un pedido mayorista
-void OrderManager::makeWholesaleOrder(WholesaleOrder order){   
-    order.setStatus(Status::IN_PROGRESS);
-    if(warehouse.checkOrderW(order)){
-        warehouse.concretarOrdenW(order);
-        order.setStatus(Status::FINISHED);
+void OrderManager::makeWholesaleOrder(WholesaleOrder *order){   
+    order->setStatus(Status::IN_PROGRESS);
+    if(warehouse.checkOrderW(*order)){
+        warehouse.concretarOrdenW(*order);
+        order->setStatus(Status::FINISHED);
         cout << "ORDEN REALIZADA:" <<endl;
-        order.imprimir();
+        order->imprimir();
         removeWholesaleOrder();
     }else{
         cout<<"No fue posible concretar la orden"<<endl;
