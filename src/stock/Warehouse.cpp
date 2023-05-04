@@ -12,6 +12,8 @@
 
 using namespace std;
 
+#ifndef WAREHOUSE_CPP
+#define WAREHOUSE_CPP
 
 // Devuelve la lista indicada dependiendo el tipo de fruta que se quiere agregar
 List<CrateStack>* Warehouse::listaIndicada(FruitType type){
@@ -138,10 +140,14 @@ bool Warehouse::checkOrderR(RetailOrder order){
 
 //Imprimir
 void Warehouse::imprimirWarehouse(){
-    cout<<"Deposito: "<<endl<<"Seccion Manzanas: "<<endl; 
+    cout<<"Deposito: \n"<<endl<<" Seccion Manzanas: "<<endl; 
     appleList->imprimir(); 
-    cout<<"Seccion Bananas: "<<endl; 
+    cout<<" Hay en total: "<<fixed<<setprecision(1)<<stockCompleto(APPLE)<< " kg de manzanas"<<endl;
+    cout<<" Seccion Bananas: "<<endl; 
     bananaList->imprimir(); 
-    cout<<"Seccion Naranjas: "<<endl; 
+    cout<<" Hay en total: "<<fixed<<setprecision(1)<<stockCompleto(BANANA)<< " kg de bananas"<<endl;
+    cout<<" Seccion Naranjas: "<<endl; 
     orangeList->imprimir(); 
+    cout<<" Hay en total: "<<fixed<<setprecision(1)<<stockCompleto(ORANGE)<< " kg de naranjas"<<endl;
 };
+#endif

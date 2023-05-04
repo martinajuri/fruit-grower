@@ -17,6 +17,6 @@ public:
     void desencolar(void) { this->borrar_ultimo(); };
     T* ultimo(void) { return this->cabeza(); };
     //string toPrint(string s) { return this->toPrint(s); };
-    void imprimirQueue(){cout<< "Cola de pedidos: " << endl; this->imprimirQ();}
+    void imprimirQueue(){cout<< " Cola de pedidos: " << endl; this->imprimirQ();}
 };
 #endif

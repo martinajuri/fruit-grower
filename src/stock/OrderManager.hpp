@@ -13,13 +13,17 @@
 class OrderManager{
 
     private:
-        Queue<RetailOrder> *retailQueue = new Queue<RetailOrder>();
-        Queue<WholesaleOrder> *wholesaleQueue = new Queue<WholesaleOrder>();
+        Queue<RetailOrder> *retailQueue;
+        Queue<WholesaleOrder> *wholesaleQueue;
         Warehouse warehouse;
     public:
 
         //Constructor y destructor
-        OrderManager(Warehouse w){warehouse=w;};
+        OrderManager(Warehouse w){
+            warehouse=w;
+            retailQueue = new Queue<RetailOrder>();
+            wholesaleQueue = new Queue<WholesaleOrder>();
+        };
         OrderManager();
 
         //Agrega a la cola una orden minorista o mayorista

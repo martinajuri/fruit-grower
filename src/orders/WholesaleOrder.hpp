@@ -15,7 +15,7 @@ class WholesaleOrder : public Order{
         WholesaleOrder(int amount, Client client, FruitType type): Order(client, type){this->amount=amount;};
         WholesaleOrder():Order(){amount=0;};
         int getAmount(){return amount;};
-        void imprimir(){cout << getClient().toString() + to_string(getAmount()) + " cajones de " + fruitTypeToString(getFruitType())+ " Estado: " + statusToString(getStatus())<<endl;}
+        void imprimir(){cout <<"  "<< getClient().toString() <<"\n   Pedido: "<< to_string(getAmount()) + " cajones de " + fruitTypeToString(getFruitType())+ " \n   Estado: " + statusToString(getStatus())<<endl;}
 
     private:
         int amount;

@@ -32,7 +32,7 @@ class Crate{
     
         //to string
         //string toString(){return "Cajon " + id + ": " +  to_string(getFruitAmount()) + " " + fruitTypeToString(type) ;}
-        void imprimir(){cout << "Cajon " << id << ": " <<fixed<< setprecision(1)<<getFruitAmount() << " kg de " << fruitTypeToString(type)<<endl;}
+        void imprimir(){cout << "   Cajon " << id << ": " <<fixed<< setprecision(1)<<getFruitAmount() << " kg de " << fruitTypeToString(type)<<endl;}
 
         // add fruit to crate
         void addFruit(float n);

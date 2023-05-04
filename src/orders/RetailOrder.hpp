@@ -16,7 +16,7 @@ public:
     RetailOrder(float weight, Client client, FruitType type) : Order(client, type) { this->weight = weight; };
     RetailOrder(): Order(){weight=0.0f;};
     float getAmount() { return weight; };
-    void imprimir() { cout << getClient().toString() << fixed << setprecision(1)<< getAmount() << " kg de " << fruitTypeToString(getFruitType()) << " Estado: " << statusToString(getStatus())<<endl; }
+    void imprimir() { cout <<"  "<< getClient().toString() <<"\n   Pedido: "<< fixed << setprecision(1)<< getAmount() << " kg de " << fruitTypeToString(getFruitType()) << " \n   Estado: " << statusToString(getStatus())<<endl; }
 
 private:
     float weight;

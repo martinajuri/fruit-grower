@@ -49,12 +49,12 @@ template <class T>
 void List<T>::imprimir(){
     
     if (!this->isEmpty()){
-        cabeza()->imprimir();
+        cabeza()->imprimir(); //tiene que  tener el item su metodo imprimir
         //cout<< endl;
         this->resto()->imprimir();
     }
     else{
-        cout << "Lista vacía" << endl;
+        cout << "   Lista vacía" << endl;
     }
 };
 

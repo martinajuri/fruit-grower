@@ -9,7 +9,8 @@
 #include "Warehouse.cpp"
 #include "OrderManager.hpp"
 
-
+#ifndef ORDER_MANAGER_CPP
+#define ORDER_MANAGER_CPP
 //atender un pedido minorista
 void OrderManager::makeRetailOrder(RetailOrder *order){
     order->setStatus(Status::IN_PROGRESS);
@@ -56,6 +57,7 @@ void OrderManager::makeOrder(bool b){
 
 //Imprimir el listado de pedidos minoristas y mayoristas
 void OrderManager::imprimir(){
-    cout<<"Pedidos minoristas: " <<endl;retailQueue->imprimir();
-    cout<<"Pedidos mayoristas: " <<endl;wholesaleQueue->imprimir();
+    cout<<"Pedidos minoristas: " <<endl;retailQueue->imprimirQueue();
+    cout<<"Pedidos mayoristas: " <<endl;wholesaleQueue->imprimirQueue();
 }
+#endif

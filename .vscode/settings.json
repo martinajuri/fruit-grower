@@ -9,6 +9,7 @@
         "atomic": "cpp",
         "numeric": "cpp",
         "sstream": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "new": "cpp"
     }
 }
