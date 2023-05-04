@@ -80,5 +80,5 @@ int main( int argc, char *argv[])
     deposito->addFruit(crate3);
 
 
-    deposito->imprimirWarehouse();
+    //deposito->imprimirWarehouse();
 }

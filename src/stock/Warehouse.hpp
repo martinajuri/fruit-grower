@@ -25,7 +25,7 @@ class Warehouse{
             List<CrateStack> *bananaList = new List<CrateStack>;
             List<CrateStack> *orangeList = new List<CrateStack>;
         };
-        List<CrateStack> listaIndicada(FruitType type);
+        List<CrateStack>* listaIndicada(FruitType type);
         void addFruit(Crate *c);
         void concretarOrdenR(RetailOrder order);
         void concretarOrdenW(WholesaleOrder order);
