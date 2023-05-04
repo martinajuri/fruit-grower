@@ -17,6 +17,8 @@ void OrderManager::makeRetailOrder(RetailOrder *order){
     if(warehouse.checkOrderR(*order)){
         warehouse.concretarOrdenR(*order);
         order->setStatus(Status::FINISHED);
+        cout << "ORDEN REALIZADA:" <<endl;
+        order->imprimir();
         removeRetailOrder();
     }
     else{
@@ -41,7 +43,9 @@ void OrderManager::makeWholesaleOrder(WholesaleOrder *order){
 //Atender un pedido, recibe true si le da prioridad a los pedidos minoristas y false si da prioridad a los mayoristas
 void OrderManager::makeOrder(bool b){
     if(b){
-       if(retailQueue->size()>0){
+       
+       if(retailQueue->size()>0){ 
+        cout<< "entre"<< endl;
         makeRetailOrder(retailQueue->tope());
         }else{
         makeWholesaleOrder(wholesaleQueue->tope());

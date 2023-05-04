@@ -27,27 +27,29 @@ int main( int argc, char *argv[])
 
 //Establecer prioridad
 string rta;
-bool retailPriority;
+bool retailPriority = false;
 cout<<"Devuelva true si la prioridad la tendran los minoristas"<<endl;
 cin>>rta;
-if(rta!="true"){
-    retailPriority = false;
+if(rta =="true"){
+    retailPriority = true;
 }
 
 //Creación de depósito y cajas
     Warehouse *deposito = new Warehouse();
-    Crate *crate1 = new Crate("crate1", FruitType::APPLE, 15.0f);
+    Crate *crate1 = new Crate("crate1", FruitType::APPLE, 19.0f);
     Crate *crate2 = new Crate("crate2", FruitType::BANANA,8.0f);
     Crate *crate3 = new Crate("crate3", FruitType::ORANGE,10.0f);
     Crate *crate4 = new Crate("crate4", FruitType::ORANGE,15.0f);
     Crate *crate5 = new Crate("crate5", FruitType::BANANA,18.0f);
     Crate *crate6 = new Crate("crate6", FruitType::APPLE, 19.0f);
+    Crate *crate7 = new Crate("crate7", FruitType::APPLE, 19.0f);
     deposito->addFruit(crate1);
     deposito->addFruit(crate2);
     deposito->addFruit(crate3);
     deposito->addFruit(crate4);
     deposito->addFruit(crate5);
     deposito->addFruit(crate6);
+    deposito->addFruit(crate7);
     deposito->imprimirWarehouse();
     cout<<"\n"<<endl;
 
@@ -77,6 +79,7 @@ if(rta!="true"){
     cout<<"\n"<<endl;
     
     //Intento llevar a cabo los pedidos
+    Ordermanager->makeOrder(retailPriority);
     Ordermanager->makeOrder(retailPriority);
     Ordermanager->makeOrder(retailPriority);
 
