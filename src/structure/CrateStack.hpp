@@ -18,9 +18,9 @@ class CrateStack : public List<Crate>{
         const int MAX = 10;
         
     public:
-        CrateStack(FruitType f){List<Crate>(); frutaAlmacenada = f;};
+        CrateStack(FruitType f){List<Crate*>(); frutaAlmacenada = f;};
         CrateStack();
-        Crate* tope(void){return this->cabeza();};
+        Crate tope(void){return this->cabeza();};
         bool pilaVacia(){return this->isEmpty();};
         bool pilaLlena(){return this->size() == MAX;};
         FruitType getFrutaAlmacenada(){return frutaAlmacenada;};

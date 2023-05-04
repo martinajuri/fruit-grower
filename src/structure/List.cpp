@@ -11,7 +11,7 @@ using namespace std;
 template <class T>
 
 //Agrega un puntero de un objeto T a la lista
-void List<T>::add(T* d){
+void List<T>::add(T d){
     Nodo<T>* nuevo = new Nodo<T>(d);
     nuevo->setNext(czo);
     czo = nuevo;
@@ -19,9 +19,9 @@ void List<T>::add(T* d){
 
 //Retorna el puntero al primer objeto T de la lista
 template <class T>
-T* List<T>::cabeza(void){
-    if (this->isEmpty()) {
-        return czo->getDato(); 
+T List<T>::cabeza(void){
+    if (this.isEmpty()) {
+        return NULL; 
     }
     return czo->getDato();
 };
@@ -36,8 +36,8 @@ List<T>* List<T>::resto(void){
 
 //Devuelve el puntero al ultimo objeto de la lista
 template <class T> 
-T* List<T>::last(){
-    if ((czo->getNext())->getNext() == nullptr) { //cond. de corte
+T List<T>::last(){
+    if ((czo->getNext())->getNext()->isEmpty()) { //cond. de corte
         return czo->getDato(); //devuelve a lo que apunta el elemento
     }
     else {return this->resto()->last();} //parte recursiva
@@ -87,37 +87,14 @@ template <class T> void List<T>::borrar(void){
 //Borra el ultimo nodo
 template <class T> void List<T>::borrar_ultimo(){ 
     if (!this->isEmpty()) {
-        if ((czo->getNext())->getNext() == nullptr) {
+        if ((czo->getNext())->getNext() == NULL) {
             delete czo->getNext();
-            czo->setNext(nullptr);
+            czo->setNext(NULL);
         }
         else this->resto()->borrar_ultimo();
     }
 };
 
-// le transfiere los datos de l1 a this
-template <class T> void List<T>::concat(List<T>* l1){
-    if (!(l1->isEmpty())) {
-        this->concat(l1->resto());
-        this->add(l1->cabeza());
-    }
-};
-
-// hace una copia de la lista
-template <class T> List<T>* List<T>::copy(void){
-    List<T>* aux = new List();
-    aux->concat(this);
-    return aux;
-};
-
-
-//deja "vivos" los n primeros nodos y borra el resto
-template <class T> void List<T>::tomar(int n){ 
-    if (this->size() > n) {
-        this->borrar_last();
-        this->tomar(n);
-    }
-};
 
 template <class T>
 string List<T>::toPrint(string p){

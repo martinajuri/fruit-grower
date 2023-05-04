@@ -13,8 +13,8 @@
 class OrderManager{
 
     private:
-        Queue<RetailOrder> *retailQueue = new Queue<RetailOrder>();
-        Queue<WholesaleOrder> *wholesaleQueue = new Queue<WholesaleOrder>();
+        Queue<RetailOrder*> *retailQueue = new Queue<RetailOrder*>();
+        Queue<WholesaleOrder*> *wholesaleQueue = new Queue<WholesaleOrder*>();
         Warehouse warehouse;
     public:
 
