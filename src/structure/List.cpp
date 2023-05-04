@@ -20,9 +20,6 @@ void List<T>::add(T* d){
 //Retorna el puntero al primer objeto T de la lista
 template <class T>
 T* List<T>::cabeza(void){
-    if (this->isEmpty()) {
-        return czo->getDato(); 
-    }
     return czo->getDato();
 };
 
@@ -48,26 +45,23 @@ T* List<T>::last(){
 template <class T>
 void List<T>::imprimir(){
     
-    if (!this->isEmpty()){
+    
         cabeza()->imprimir();
         //cout<< endl;
         this->resto()->imprimir();
-    }
-    else{
-        cout << "Lista vacía" << endl;
-    }
+
+   
 };
 
 //imprime un string, FIFO
 template <class T>
 void List<T>::imprimirQ(){
     
-    if (this->isEmpty()) {
-    }else {  
+    
         this->resto()->imprimirQ();
         cabeza()->imprimir();
         //cout<< endl;
-    }
+    
 };
 
 //Devuelve la cantidad de nodos

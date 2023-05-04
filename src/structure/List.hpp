@@ -26,7 +26,7 @@ template <class T> class List {
         void borrar_ultimo();
 
     //Tamaño
-        bool isEmpty(void) { return czo == NULL || czo->isEmpty();};
+        bool isEmpty(void) { return  czo->esvacio();};
         int size();
 
     //Para el cout

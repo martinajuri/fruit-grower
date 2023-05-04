@@ -32,15 +32,9 @@ List<CrateStack>* Warehouse::listaIndicada(FruitType type){
 // Llega al deposito un cajon con una cantida de una fruta 
 void Warehouse::addFruit(Crate *c){
 
-    List<CrateStack>* list = new List<CrateStack>;
-    list = listaIndicada(c->getType());
+    List<CrateStack>* list = listaIndicada(c->getType());
 
-    if(list->isEmpty()){
-        CrateStack *pila = new CrateStack(c->getType());
-        list->add(pila);
-        pila->apilar(c);
-    } //si la pila esta llena
-    else if (list->cabeza()->pilaLlena()){
+    if (list->cabeza()->pilaLlena() || list->cabeza()->pilaVacia()){
         CrateStack *nuevaPila = new CrateStack(c->getType());
         list->add(nuevaPila);
         nuevaPila->apilar(c);
