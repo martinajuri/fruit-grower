@@ -72,13 +72,15 @@ int main( int argc, char *argv[])
 
     Warehouse *deposito = new Warehouse();
     Crate *crate1 = new Crate("crate1", FruitType::APPLE, 15.0f);
-    Crate *crate2 = new Crate("crate2", FruitType::BANANA,7.0f);
+    Crate *crate2 = new Crate("crate2", FruitType::BANANA,8.0f);
     Crate *crate3 = new Crate("crate3", FruitType::ORANGE,10.0f);
-
+    Crate *crate4 = new Crate("crate4", FruitType::ORANGE,15.0f);
+    Crate *crate5 = new Crate("crate5", FruitType::BANANA,18.0f);
     deposito->addFruit(crate1);
     deposito->addFruit(crate2);
     deposito->addFruit(crate3);
-
+    deposito->addFruit(crate4);
+    deposito->addFruit(crate5);
 
     deposito->imprimirWarehouse();
 }
