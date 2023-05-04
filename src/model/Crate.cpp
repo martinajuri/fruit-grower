@@ -6,6 +6,8 @@
 using namespace std;
 #ifndef CRATE_CPP
 #define CRATE_CPP
+
+//Agrega fruta al cajon
 void Crate::addFruit(float n) {
     if (capacity()>= n) { // Si hay capacidad mayor o igual a la cantidad que se quiere agregar
         setFruitAmount(getFruitAmount()+n); // Se suma la cantidad de fruta al cajon
@@ -15,7 +17,7 @@ void Crate::addFruit(float n) {
     }
 }
 
-// take fruit out of the crate
+//saca fruta del cajon
 void Crate::deleteFruit(float n) {
     if (getFruitAmount()>n) { // Si hay mas cantidad de la que se quiere sacar
         setFruitAmount(getFruitAmount()-n); // Se resta la cantidad de fruta al cajon

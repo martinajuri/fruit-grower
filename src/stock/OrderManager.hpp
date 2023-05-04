@@ -11,13 +11,12 @@
 #ifndef ORDER_MANAGER_HPP
 #define ORDER_MANAGER_HPP
 class OrderManager{
-
     private:
         Queue<RetailOrder> *retailQueue = new Queue<RetailOrder>();
         Queue<WholesaleOrder> *wholesaleQueue = new Queue<WholesaleOrder>();
         Warehouse warehouse;
+    
     public:
-
         //Constructor y destructor
         OrderManager(Warehouse w){warehouse=w;};
         OrderManager();

@@ -8,22 +8,20 @@ using namespace std;
 #ifndef ORDER
 #define ORDER
 class Order{
-    public:
-        // generator & destructor
-        Order(Client client, FruitType type){this->client=client ; this->type=type; this->status=Status::PENDING;};
-        Order();
-
-        //getters
-        Client getClient(){return client;};
-        FruitType getFruitType(){return type;};
-        Status getStatus(){return status;};
-
-        //setters
-        void setStatus(Status newStatus){status=newStatus;};
-
     private:
         Client client;
         FruitType type;
         Status status;
+    
+    public:
+        //Constructores
+        Order(Client client, FruitType type){this->client=client ; this->type=type; this->status=Status::PENDING;};
+        Order();
+
+        //setters & getters
+        void setStatus(Status newStatus){status=newStatus;};
+        Client getClient(){return client;};
+        FruitType getFruitType(){return type;};
+        Status getStatus(){return status;};
 };
 #endif

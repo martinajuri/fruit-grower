@@ -18,22 +18,29 @@ class CrateStack : public List<Crate>{
         const int MAX = 10;
         
     public:
+        //Constructores
         CrateStack(FruitType f){List<Crate>(); frutaAlmacenada = f;};
         CrateStack();
+
         Crate* tope(void){return this->cabeza();};
-        bool pilaVacia(){return this->isEmpty();};
+
+        //Metodos tipo size
         bool pilaLlena(){return this->size() == MAX;};
-        FruitType getFrutaAlmacenada(){return frutaAlmacenada;};
-         //devuelve la cantidad de cajones apilados
+        bool pilaVacia(){return this->isEmpty();};
         int almacenado(){return this->size();};
-        string getStringDeFruta(){return fruitTypeToString(frutaAlmacenada);};
+        float stackCapacity();
+        float capacidad_tope();
+        float cantidad_kilos();
+        FruitType getFrutaAlmacenada(){return frutaAlmacenada;};
+
+        //Metodos para manejar la pila
         void apilar(Crate *c); 
         void desapilar(); 
         void desapilarKilos(float kilos);
         void desapilarCajonEntero(int n);
-        float stackCapacity();
-        float capacidad_tope();
-        float cantidad_kilos();
+
+        //Metodos de impresion
+        string getStringDeFruta(){return fruitTypeToString(frutaAlmacenada);};
         void imprimirStack(){cout << "Pila de cajones de "<< getStringDeFruta() << ": "<<endl; imprimir();}
 };
 #endif

@@ -10,30 +10,31 @@ using namespace std;
 template <class T> class List {
     private: 
         Nodo<T>* czo;  //Puntero al primer nodo de la lista
+    
     public:
-    //Constructores
+        //Constructores
         List() { czo = new Nodo<T>(); };
         List(Nodo<T>* n) { czo = n; };
 
-    //Principales
+        //Principales
         T* cabeza(void);
         List* resto(void);
         T* last();
 
-    //Modificadores
+        //Modificadores
         void add(T* d); 
         void borrar(void); 
         void borrar_ultimo();
 
-    //Tamaño
+        //Tamaño
         bool isEmpty(void){return czo->isEmpty();};
         int size();
 
-    //Para el cout
+        //Para el cout
         void imprimir();
         void imprimirQ();
 
-    //No Usados
+        //No Usados
         void concat(List<T>* l1);
         string toPrint(string p);
         List<T>* copy(void);

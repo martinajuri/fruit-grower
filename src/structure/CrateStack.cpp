@@ -71,13 +71,7 @@ void CrateStack::desapilarCajonEntero(int n){
 
 //Retorna la capacidad disponible en la pila
 float CrateStack::stackCapacity(){
-    
-    cout << "MAX "<< MAX << endl;
-
     int aux = MAX - almacenado();
-
-    cout << "aux "<< aux <<endl;
-    
     return ((aux*20.0) + cabeza()->capacity());
 };
 

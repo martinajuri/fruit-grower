@@ -40,30 +40,28 @@ T* List<T>::last(){
     if ((czo->getNext())->getNext() == nullptr) { //cond. de corte
         return czo->getDato(); //devuelve a lo que apunta el elemento
     }
-    else {return this->resto()->last();} //parte recursiva
+    else {
+        return this->resto()->last(); //parte recursiva
+    } 
 };
 
 
-//imprime un string, LIFO
+//Imprime un string, LIFO
 template <class T>
 void List<T>::imprimir(){
-    
     if (!this->isEmpty()){
         cabeza()->imprimir();
-        //cout<< endl;
         this->resto()->imprimir();
     }
 };
 
-//imprime un string, FIFO
+//Imprime un string, FIFO
 template <class T>
 void List<T>::imprimirQ(){
-    
     if (this->isEmpty()) {
     }else {  
         this->resto()->imprimirQ();
         cabeza()->imprimir();
-        //cout<< endl;
     }
 };
 
@@ -81,6 +79,7 @@ template <class T> void List<T>::borrar(void){
         delete tmp;
     }
 };
+
 //Borra el ultimo nodo
 template <class T> void List<T>::borrar_ultimo(){ 
     if (!this->isEmpty()) {
@@ -92,7 +91,7 @@ template <class T> void List<T>::borrar_ultimo(){
     }
 };
 
-// le transfiere los datos de l1 a this
+//Le transfiere los datos de l1 a this
 template <class T> void List<T>::concat(List<T>* l1){
     if (!(l1->isEmpty())) {
         this->concat(l1->resto());
@@ -100,7 +99,7 @@ template <class T> void List<T>::concat(List<T>* l1){
     }
 };
 
-// hace una copia de la lista
+//Hace una copia de la lista
 template <class T> List<T>* List<T>::copy(void){
     List<T>* aux = new List();
     aux->concat(this);
@@ -108,7 +107,7 @@ template <class T> List<T>* List<T>::copy(void){
 };
 
 
-//deja "vivos" los n primeros nodos y borra el resto
+//Deja "vivos" los n primeros nodos y borra el resto
 template <class T> void List<T>::tomar(int n){ 
     if (this->size() > n) {
         this->borrar_last();

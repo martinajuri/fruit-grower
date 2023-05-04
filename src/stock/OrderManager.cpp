@@ -10,7 +10,7 @@
 #include "OrderManager.hpp"
 
 
-//atender un pedido minorista
+//Atender un pedido minorista
 void OrderManager::makeRetailOrder(RetailOrder *order){
     order->setStatus(Status::IN_PROGRESS);
     if(warehouse.checkOrderR(*order)){
@@ -23,7 +23,7 @@ void OrderManager::makeRetailOrder(RetailOrder *order){
     }
 };
 
-//atender un pedido mayorista
+//Atender un pedido mayorista
 void OrderManager::makeWholesaleOrder(WholesaleOrder *order){   
     order->setStatus(Status::IN_PROGRESS);
     if(warehouse.checkOrderW(*order)){
