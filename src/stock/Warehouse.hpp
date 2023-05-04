@@ -27,11 +27,11 @@ class Warehouse{
         };
         List<CrateStack> listaIndicada(FruitType type);
         void addFruit(FruitType f, CrateStack *p);
-        // void concretarOrdenR(RetailOrder order);
-        // void concretarOrdenW(WholesaleOrder order);
-        // float stockCompleto(FruitType type);
-        // bool checkOrderW(WholesaleOrder order);
-        // bool checkOrderR(RetailOrder order);
+        void concretarOrdenR(RetailOrder order);
+        void concretarOrdenW(WholesaleOrder order);
+        float stockCompleto(FruitType type);
+        bool checkOrderW(WholesaleOrder order);
+        bool checkOrderR(RetailOrder order);
         void imprimirWarehouse();
 };
 #endif

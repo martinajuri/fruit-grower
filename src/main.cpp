@@ -1,21 +1,22 @@
 #include <iostream>
-#include "stock\Warehouse.cpp"
 #include "utils\enum.hpp"
+#include "stock\Warehouse.cpp"
+#include "stock\OrderManager.cpp"
 #include "structure\List.cpp"
 #include "model\Crate.cpp"
 #include "structure\CrateStack.cpp"
+#include "model\Client.hpp"
+#include "orders\RetailOrder.hpp"
+#include "orders\WholesaleOrder.hpp"
+
 /*
 #include "stock\Warehouse.cpp"
-#include "stock\OrderManager.cpp"
 #include "structure\List.cpp"
 #include "model\Crate.cpp"
 #include "model\Crate.hpp"
 #include "structure\CrateStack.cpp"
 #include "structure\Queue.hpp"
 #include "structure\CrateStack.hpp"
-#include "model\Client.hpp"
-#include "orders\RetailOrder.hpp"
-#include "orders\WholesaleOrder.hpp"
 */
 
 
@@ -47,14 +48,6 @@ int main()
     cout << "Cantidad de cajas " <<pila->almacenado()<< endl;
     cout << "Capacidad disponible del tope de la pila: " <<pila->capacidad_tope()<< endl;
     cout << "Cantidad de kilos que contiene la pila: "<< pila->cantidad_kilos();
-    
-    Client *fer = new Client("Fer");
-    Client *marcos = new Client("Marcos");    
-    Client *sofia = new Client("Sofia");  
-    
-    RetailOrder *ordenMar = new RetailOrder(2.0,*marcos,FruitType::APPLE);
-    WholesaleOrder *ordenSofi = new WholesaleOrder(2,*sofia,FruitType::BANANA);
-    WholesaleOrder *ordenFer = new WholesaleOrder(10, *fer,FruitType::ORANGE);
 
     
 
@@ -90,5 +83,31 @@ int main()
     pilaNaranjas->apilar(crate4);
 
     deposito->imprimirWarehouse();
-   
+    cout<<endl;
+
+    OrderManager *admin = new OrderManager(*deposito);
+
+    Client *fer = new Client("Fer");
+    Client *marcos = new Client("Marcos");    
+    Client *sofia = new Client("Sofia");  
+
+    RetailOrder *ordenMar = new RetailOrder(2.0,*marcos,FruitType::APPLE);
+    WholesaleOrder *ordenSofi = new WholesaleOrder(2,*sofia,FruitType::BANANA);
+    WholesaleOrder *ordenFer = new WholesaleOrder(10, *fer,FruitType::ORANGE);
+
+    admin->addRetailOrder(ordenMar);
+    admin->addWholesaleOrder(ordenSofi);
+    admin->addWholesaleOrder(ordenFer);
+
+    admin->imprimir();
+    cout<<endl;
+
+    admin->makeOrder(true);
+    admin->makeOrder(true);
+
+    admin->imprimir();
+    cout<<endl;
+    
+    deposito->imprimirWarehouse();
+
 }

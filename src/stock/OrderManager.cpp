@@ -16,10 +16,12 @@ void OrderManager::makeRetailOrder(RetailOrder *order){
     if(warehouse.checkOrderR(*order)){
         warehouse.concretarOrdenR(*order);
         order->setStatus(Status::FINISHED);
+        cout << endl << "ORDEN REALIZADA:" <<endl;
+        order->imprimir();
         removeRetailOrder();
     }
     else{
-        cout<<"No fue posible concretar la orden"<<endl;
+        cout<<endl<<"No fue posible concretar la orden"<<endl<<endl;
     }
 };
 
@@ -29,11 +31,11 @@ void OrderManager::makeWholesaleOrder(WholesaleOrder *order){
     if(warehouse.checkOrderW(*order)){
         warehouse.concretarOrdenW(*order);
         order->setStatus(Status::FINISHED);
-        cout << "ORDEN REALIZADA:" <<endl;
+        cout <<endl<< "ORDEN REALIZADA:" <<endl;
         order->imprimir();
         removeWholesaleOrder();
     }else{
-        cout<<"No fue posible concretar la orden"<<endl;
+        cout<<endl<<"No fue posible concretar la orden"<<endl<<endl;
     }
 };
 
