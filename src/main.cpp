@@ -83,9 +83,4 @@ if(rta =="true"){
     Ordermanager->makeOrder(retailPriority);
     Ordermanager->makeOrder(retailPriority);
 
-    //actualizo impresión de warehouse y ordermanager
-    cout<<"\n"<<endl;
-    Ordermanager->imprimir();
-    deposito->imprimirWarehouse(); 
-
 }
