@@ -14,6 +14,7 @@ using namespace std;
 //Apila un caja
 void CrateStack::apilar(Crate *c){   
     if (pilaVacia()) { // si la pila está vacía
+       cout << "esta vacia "<<endl;
        this->add(c); 
     } else //si no esta vacia
         if(tope()->hasCapacity() && !c->hasCapacity()){ // cajon que quiero agregar esta lleno
