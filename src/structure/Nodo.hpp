@@ -29,6 +29,6 @@ public:
     Nodo *getNext() { return next; };
 
     //devuelve si el nodo no tiene siguiente nodo apuntado
-    bool isEmpty() { return next == nullptr; }
+    bool isEmpty() { return dato == NULL; }
 };
 #endif

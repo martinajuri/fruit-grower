@@ -12,7 +12,7 @@ template <class T> class List {
         Nodo<T>* czo;  //Puntero al primer nodo de la lista
     public:
     //Constructores
-        List() { czo = new Nodo<T>(); };
+        List() { Nodo<T> *czo = new Nodo<T>(); };
         List(Nodo<T>* n) { czo = n; };
 
     //Principales
@@ -26,7 +26,7 @@ template <class T> class List {
         void borrar_ultimo();
 
     //Tamaño
-        bool isEmpty(void) {return czo == nullptr || czo->isEmpty();};
+        bool isEmpty(void) { return czo == NULL || czo->isEmpty();};
         int size();
 
     //Para el cout
