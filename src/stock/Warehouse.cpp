@@ -31,9 +31,7 @@ List<CrateStack>* Warehouse::listaIndicada(FruitType type){
 
 // Llega al deposito un cajon con una cantida de una fruta 
 void Warehouse::addFruit(Crate *c){
-
-    List<CrateStack>* list = new List<CrateStack>;
-    list = listaIndicada(c->getType());
+    List<CrateStack>* list = listaIndicada(c->getType());
 
     if(list->isEmpty()){
         CrateStack *pila = new CrateStack(c->getType());

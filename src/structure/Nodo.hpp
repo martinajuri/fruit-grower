@@ -13,7 +13,10 @@ private:
     T *dato;        // Puntero al dato del nodo
     Nodo *next;     // Puntero al siguiente nodo
 public:
-    Nodo() { next = NULL; };
+    Nodo() {
+        next = NULL;
+        dato = NULL;
+    };
     
     Nodo(T *a){
         dato = a;

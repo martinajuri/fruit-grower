@@ -1,8 +1,8 @@
 #include <iostream>
-#include "stock\Warehouse.cpp"
-#include "model\Crate.cpp"
+#include "./stock/Warehouse.cpp"
+#include "./model/Crate.cpp"
 
-#include "utils\enum.hpp"
+#include "./utils/enum.hpp"
 
 /*
 #include "stock\OrderManager.cpp"
@@ -80,5 +80,5 @@ int main( int argc, char *argv[])
     deposito->addFruit(crate3);
 
 
-    //deposito->imprimirWarehouse();
+    deposito->imprimirWarehouse();
 }

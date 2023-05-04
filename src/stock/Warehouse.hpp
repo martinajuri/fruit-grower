@@ -21,9 +21,9 @@ class Warehouse{
 
     public:
         Warehouse(){
-            List<CrateStack> *appleList = new List<CrateStack>;
-            List<CrateStack> *bananaList = new List<CrateStack>;
-            List<CrateStack> *orangeList = new List<CrateStack>;
+            appleList = new List<CrateStack>();
+            bananaList = new List<CrateStack>();
+            orangeList = new List<CrateStack>();
         };
         List<CrateStack>* listaIndicada(FruitType type);
         void addFruit(Crate *c);
