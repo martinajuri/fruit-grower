@@ -99,27 +99,27 @@ void Warehouse::addFruit(FruitType f, CrateStack *p){
 // };
 
 // Intenta concretar una orden mayorista
-bool Warehouse::checkOrderW(WholesaleOrder order){
-    float aux = order.getAmount() *20.0;
-    if(order.getAmount()<=stockCompleto(order.getFruitType())){
-        return true;
-    }
-    else{
-        return false;
-    }
-};
+// bool Warehouse::checkOrderW(WholesaleOrder order){
+//     float aux = order.getAmount() *20.0;
+//     if(order.getAmount()<=stockCompleto(order.getFruitType())){
+//         return true;
+//     }
+//     else{
+//         return false;
+//     }
+// };
 
 
-// Intenta concretar una orden minorista
-bool Warehouse::checkOrderR(RetailOrder order){
+// // Intenta concretar una orden minorista
+// bool Warehouse::checkOrderR(RetailOrder order){
 
-    if(order.getAmount()<=stockCompleto(order.getFruitType())){
-        return true;
-    }
-    else{
-        return false;
-    }
-};
+//     if(order.getAmount()<=stockCompleto(order.getFruitType())){
+//         return true;
+//     }
+//     else{
+//         return false;
+//     }
+// };
 
 //Imprimir
 void Warehouse::imprimirWarehouse(){

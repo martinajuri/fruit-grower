@@ -15,19 +15,24 @@ using namespace std;
 #define WAREHOUSE_HPP
 class Warehouse{
     private:
-        List<CrateStack> *appleList = new List<CrateStack>;
-        List<CrateStack> *bananaList = new List<CrateStack>;
-        List<CrateStack> *orangeList = new List<CrateStack>;
+        List<CrateStack> *appleList;
+        List<CrateStack> *bananaList;
+        List<CrateStack> *orangeList;
 
     public:
-        Warehouse();
+        Warehouse(){
+            appleList = new List<CrateStack>;
+            bananaList = new List<CrateStack>;
+            orangeList = new List<CrateStack>;
+
+        };
         List<CrateStack> listaIndicada(FruitType type);
         void addFruit(FruitType f, CrateStack *p);
-        void concretarOrdenR(RetailOrder order);
-        void concretarOrdenW(WholesaleOrder order);
-        float stockCompleto(FruitType type);
-        bool checkOrderW(WholesaleOrder order);
-        bool checkOrderR(RetailOrder order);
+        // void concretarOrdenR(RetailOrder order);
+        // void concretarOrdenW(WholesaleOrder order);
+        // float stockCompleto(FruitType type);
+        // bool checkOrderW(WholesaleOrder order);
+        // bool checkOrderR(RetailOrder order);
         void imprimirWarehouse();
 };
 #endif

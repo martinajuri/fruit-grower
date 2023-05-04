@@ -21,7 +21,7 @@
 
 
 using namespace std;
-int main( int argc, char *argv[])
+int main()
 {
     /*
     OrderManager *cajero = new OrderManager(*deposito);
@@ -62,19 +62,33 @@ int main( int argc, char *argv[])
     Warehouse *deposito = new Warehouse();
     List<int> *lista = new List<int>;
     Crate *crate1 = new Crate("crate1", FruitType::APPLE, 15.0f);
-    Crate *crate2 = new Crate("crate2", FruitType::APPLE,7.0f);
-    Crate *crate3 = new Crate("crate3", FruitType::APPLE,10.0f);
+    Crate *crate2 = new Crate("crate2", FruitType::ORANGE,7.0f);
+    Crate *crate3 = new Crate("crate3", FruitType::BANANA,10.0f);
+    Crate *crate4 = new Crate("crate4", FruitType::ORANGE,10.0f);
+    Crate *crate5 = new Crate("crate5", FruitType::APPLE,2.0f);
     
     CrateStack *pilaManzanas = new CrateStack(FruitType::APPLE);
+    CrateStack *pilaNaranjas = new CrateStack(FruitType::ORANGE);
+    CrateStack *pilaBananas = new CrateStack(FruitType::BANANA);
 
     pilaManzanas->apilar(crate1);
-    pilaManzanas->apilar(crate2);
-    pilaManzanas->apilar(crate3);
+    pilaNaranjas->apilar(crate2);
+    pilaBananas->apilar(crate3);
 
     pilaManzanas->imprimirStack();
+    pilaNaranjas->imprimirStack();
+    pilaBananas->imprimirStack();
+
+    cout<<endl;
 
     deposito->addFruit(FruitType :: APPLE,pilaManzanas);
+    deposito->addFruit(FruitType :: ORANGE,pilaNaranjas);
+    deposito->addFruit(FruitType :: BANANA,pilaBananas);
+    deposito->imprimirWarehouse();
+    cout<<endl;
+    pilaManzanas->apilar(crate5);
+    pilaNaranjas->apilar(crate4);
+
     deposito->imprimirWarehouse();
    
-
 }
