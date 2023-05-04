@@ -22,11 +22,12 @@ class Warehouse{
     public:
         Warehouse();
         List<CrateStack> listaIndicada(FruitType type);
-        void addFruit(Crate *c);
+        void addFruit(FruitType f, CrateStack *p);
         void concretarOrdenR(RetailOrder order);
         void concretarOrdenW(WholesaleOrder order);
         float stockCompleto(FruitType type);
         bool checkOrderW(WholesaleOrder order);
         bool checkOrderR(RetailOrder order);
+        void imprimirWarehouse();
 };
 #endif
