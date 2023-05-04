@@ -53,7 +53,7 @@ int main()
 
     */
     Warehouse *deposito = new Warehouse();
-    List<int> *lista = new List<int>;
+
     Crate *crate1 = new Crate("crate1", FruitType::APPLE, 15.0f);
     Crate *crate2 = new Crate("crate2", FruitType::ORANGE,7.0f);
     Crate *crate3 = new Crate("crate3", FruitType::BANANA,10.0f);
