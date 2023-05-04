@@ -45,7 +45,6 @@ void OrderManager::makeOrder(bool b){
     if(b){
        
        if(retailQueue->size()>0){ 
-        cout<< "entre"<< endl;
         makeRetailOrder(retailQueue->tope());
         }else{
         makeWholesaleOrder(wholesaleQueue->tope());
