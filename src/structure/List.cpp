@@ -53,8 +53,20 @@ void List<T>::imprimir(){
         //cout<< endl;
         this->resto()->imprimir();
     }
+    
+};
+template <class T>
+void List<T>::imprimirL(){
+    
+    if (!this->isEmpty()){
+        cout<<"---------------------------------------"<<endl;
+        cabeza()->imprimir(); //tiene que  tener el item su metodo imprimir
+        //cout<< endl;
+        cout<<"---------------------------------------"<<endl;
+        this->resto()->imprimir();
+    }
     else{
-        cout << "   Lista vacía" << endl;
+        cout << "---------------------------------------" << endl;
     }
 };
 

@@ -9,6 +9,7 @@
 #include "../orders/RetailOrder.hpp"
 #include "../orders/WholesaleOrder.hpp"
 #include "Warehouse.hpp"
+#include <cmath>
 
 using namespace std;
 
@@ -30,7 +31,20 @@ List<CrateStack>* Warehouse::listaIndicada(FruitType type){
         break;
     }
 };
-
+void Warehouse::agregarFruta(FruitType type, float kg){
+    int cajones = kg/20;
+    for (int i = 0; i < cajones; i++)
+    {
+        Crate *cajonAux = new Crate("id", type, 20.0);
+        addFruit(cajonAux);
+    }
+    if (fmod(kg, 20)!=0)
+    {
+        Crate *cajon = new Crate("id", type, fmod(kg, 20));
+        addFruit(cajon);
+    }
+    
+}
 // Llega al deposito un cajon con una cantida de una fruta 
 void Warehouse::addFruit(Crate *c){
     List<CrateStack>* list = listaIndicada(c->getType());
@@ -141,13 +155,27 @@ bool Warehouse::checkOrderR(RetailOrder order){
 //Imprimir
 void Warehouse::imprimirWarehouse(){
     cout<<"Deposito: \n"<<endl<<" Seccion Manzanas: "<<endl; 
-    appleList->imprimir(); 
-    cout<<" Hay en total: "<<fixed<<setprecision(1)<<stockCompleto(APPLE)<< " kg de manzanas"<<endl;
+    appleList->imprimirL(); 
+    if (!appleList->isEmpty())
+    {
+        cout<<"---------------------------------------"<<endl;
+        cout<<" Hay en total: "<<fixed<<setprecision(1)<<stockCompleto(APPLE)<< " kg de manzanas"<<endl;
+    }
+    cout<<"---------------------------------------"<<endl;
     cout<<" Seccion Bananas: "<<endl; 
-    bananaList->imprimir(); 
-    cout<<" Hay en total: "<<fixed<<setprecision(1)<<stockCompleto(BANANA)<< " kg de bananas"<<endl;
+    bananaList->imprimirL(); 
+    if (!bananaList->isEmpty())
+    {
+        cout<<"---------------------------------------"<<endl;
+        cout<<" Hay en total: "<<fixed<<setprecision(1)<<stockCompleto(BANANA)<< " kg de bananas"<<endl;
+    }
+    cout<<"---------------------------------------"<<endl;
     cout<<" Seccion Naranjas: "<<endl; 
-    orangeList->imprimir(); 
-    cout<<" Hay en total: "<<fixed<<setprecision(1)<<stockCompleto(ORANGE)<< " kg de naranjas"<<endl;
+    orangeList->imprimirL(); 
+    if (!orangeList->isEmpty())
+    {
+        cout<<"---------------------------------------"<<endl;
+        cout<<" Hay en total: "<<fixed<<setprecision(1)<<stockCompleto(ORANGE)<< " kg de naranjas"<<endl;
+    }
 };
 #endif

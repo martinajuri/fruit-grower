@@ -27,6 +27,7 @@ class Warehouse{
         };
         List<CrateStack>* listaIndicada(FruitType type);
         void addFruit(Crate *c);
+        void agregarFruta(FruitType type, float kg);
         void concretarOrdenR(RetailOrder order);
         void concretarOrdenW(WholesaleOrder order);
         float stockCompleto(FruitType type);

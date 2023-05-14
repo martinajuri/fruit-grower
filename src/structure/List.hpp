@@ -36,6 +36,7 @@ template <class T> class List {
     //Para el cout
         void imprimir();
         void imprimirQ();
+        void imprimirL();
 
     //No Usados
         void concat(List<T>* l1);

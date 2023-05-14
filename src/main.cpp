@@ -1,86 +1,229 @@
 #include <iostream>
 #include "./stock/Warehouse.cpp"
-#include "./model/Crate.cpp"
 #include "stock\OrderManager.cpp"
 #include "./utils/enum.hpp"
-
-/*
-
-#include "structure\List.cpp"
-#include "model\Crate.hpp"
-#include "structure\CrateStack.cpp"
-#include "structure\Queue.hpp"
-#include "structure\CrateStack.hpp"
-#include "model\Client.hpp"
-#include "orders\RetailOrder.hpp"
-#include "orders\WholesaleOrder.hpp"
-#include "structure\List.cpp"
-#include "model\Crate.cpp"
-#include "structure\CrateStack.cpp"
-*/
-
 
 
 using namespace std;
 int main( int argc, char *argv[])
 {
 
-//Establecer prioridad
-string rta;
-bool retailPriority = false;
-cout<<"Devuelva true si la prioridad la tendran los minoristas"<<endl;
-cin>>rta;
-if(rta =="true"){
-    retailPriority = true;
-}
-
-//Creación de depósito y cajas
     Warehouse *deposito = new Warehouse();
-    Crate *crate1 = new Crate("crate1", FruitType::APPLE, 19.0f);
-    Crate *crate2 = new Crate("crate2", FruitType::BANANA,8.0f);
-    Crate *crate3 = new Crate("crate3", FruitType::ORANGE,10.0f);
-    Crate *crate4 = new Crate("crate4", FruitType::ORANGE,15.0f);
-    Crate *crate5 = new Crate("crate5", FruitType::BANANA,18.0f);
-    Crate *crate6 = new Crate("crate6", FruitType::APPLE, 19.0f);
-    Crate *crate7 = new Crate("crate7", FruitType::APPLE, 19.0f);
-    deposito->addFruit(crate1);
-    deposito->addFruit(crate2);
-    deposito->addFruit(crate3);
-    deposito->addFruit(crate4);
-    deposito->addFruit(crate5);
-    deposito->addFruit(crate6);
-    deposito->addFruit(crate7);
-    deposito->imprimirWarehouse();
-    cout<<"\n"<<endl;
+    OrderManager *admin = new OrderManager(*deposito);
+    string nombre;
 
-//Creación de ordenes
-
-    //hago el gerente de pedidos
-    OrderManager *Ordermanager = new OrderManager(*deposito);
+    cout << "¡Bienvenido a la verdulería de Vicente!" << endl;
+    while (true)
+    {
+        cout << "A donde te quieres dirigir?"<< endl<< "A) Deposito"<<endl<<"B) Caja"<<endl<<"C) Impresiones"<<endl;
+        char option;
+        cin >> option;
     
-    //creo clientes
-    Client *fer = new Client("Fer");
-    Client *marcos = new Client("Marcos");    
-    Client *sofi = new Client("Sofi");
-    Client *vicente = new Client("Vicente");    
-    
-    //Creo las ordenes
-    RetailOrder *ordenMar = new RetailOrder(2.0,*marcos,FruitType::APPLE);
-    WholesaleOrder *ordenSofi = new WholesaleOrder(2,*sofi,FruitType::BANANA);
-    WholesaleOrder *ordenFer = new WholesaleOrder(10, *fer,FruitType::ORANGE);
-    RetailOrder *ordenVicente = new RetailOrder(10.0, *vicente,FruitType::BANANA);
+        switch (option)
+        {
 
-    //Meto las ordenes en OrderManager
-    Ordermanager->addRetailOrder(ordenMar);
-    Ordermanager->addRetailOrder(ordenVicente);
-    Ordermanager->addWholesaleOrder(ordenFer);
-    Ordermanager->addWholesaleOrder(ordenSofi);
-    Ordermanager->imprimir();
-    cout<<"\n"<<endl;
-    
-    //Intento llevar a cabo los pedidos
-    Ordermanager->makeOrder(retailPriority);
-    Ordermanager->makeOrder(retailPriority);
-    Ordermanager->makeOrder(retailPriority);
+        case 'A':
+            cout<< "Usted esta dentro del deposito, hacia que seccion desea moverse?"<<endl<< "A) Manzanas"<<endl<<"B) Bananas"<<endl<<"C) Naranjas"<<endl;
+            char option0;
+            cin >> option0;
+            FruitType type;
 
+            switch (option0)
+            {
+            case 'A':
+                type=FruitType::APPLE;
+                cout<< "Se encuentra en la seccion de las "<<fruitTypeToString(type)<<", que quiere hacer?"<<endl<< "A) Ingresar fruta"<<endl<<"B) Retirar fruta"<<endl<<"C) Volver"<<endl;
+                char option1;
+                cin >> option1;
+                switch (option1)
+                {
+                case 'A':
+                    cout<<"Ingrese la cantidad de fruta en kg que entra al deposito"<<endl;
+                    float ingreso;
+                    cin >> ingreso;
+                    deposito->agregarFruta(type, ingreso);
+                    break;
+                case 'B':
+                    cout<<"Esta opcion todavia no esta disponible"<<endl;
+                    break;
+                case 'C':
+                    break;
+                default:
+                    cout <<"Opcion invalida"<<endl;
+                    break;
+                }
+            break;
+            case 'B':
+                type=FruitType::BANANA;
+                cout<< "Se encuentra en la seccion de las "<<fruitTypeToString(type)<<", que quiere hacer?"<<endl<< "A) Ingresar fruta"<<endl<<"B) Retirar fruta"<<endl<<"C) Volver"<<endl;
+                char option2;
+                cin >> option2;
+                switch (option2)
+                {
+                case 'A':
+                    cout<<"Ingrese la cantidad de fruta en kg que entra al deposito"<<endl;
+                    float ingreso1;
+                    cin >> ingreso1;
+                    deposito->agregarFruta(type, ingreso1);
+                    break;
+                case 'B':
+                    cout<<"Esta opcion todavia no esta disponible"<<endl;
+                    break;
+                case 'C':
+                    break;
+                default:
+                    cout <<"Opcion invalida"<<endl;
+                    break;
+                }
+            break;
+            case 'C':
+                type=FruitType::ORANGE;
+                cout<< "Se encuentra en la seccion de las "<<fruitTypeToString(type)<<", que quiere hacer?"<<endl<< "A) Ingresar fruta"<<endl<<"B) Retirar fruta"<<endl<<"C) Volver"<<endl;
+                char option3;
+                cin >> option3;
+                switch (option3)
+                {
+                case 'A':
+                    cout<<"Ingrese la cantidad de fruta en kg que entra al deposito"<<endl;
+                    float ingreso2;
+                    cin >> ingreso2;
+                    deposito->agregarFruta(type, ingreso2);
+                    break;
+                case 'B':
+                    cout<<"Esta opcion todavia no esta disponible"<<endl;
+                    break;
+                case 'C':
+                    break;
+                default:
+                    cout <<"Opcion invalida"<<endl;
+                    break;
+                }
+            break;
+            default:
+                cout <<"Opcion invalida"<<endl;
+                break;
+            }
+        break;
+
+        // case 'B':
+        //     cout<<"Usted se encuentra en la caja, que desea hacer?"<<endl<< "A) Ingresar un pedido"<<endl<<"B) Intentar realizar un pedido"<<endl<<"C) Volver"<<endl;
+        //     char option4;
+        //     cin >> option4;
+        //     switch (option4)
+        //     {
+        //     case 'A':
+        //         cout<<"Ingrese la informacion del pedido"<<endl<<"Nombre del cliente: ";
+        //         cin>>nombre;
+        //         Client *cliente = new Client(nombre);
+                
+        //         cout << "Tipo de pedido: A) Minorista B) Mayorista"<<endl;
+        //         char tipoDePedido;
+        //         cin >> tipoDePedido;
+        //         switch (tipoDePedido)
+        //         {
+        //         case 'A':
+        //             cout << "Cantidad de fruta en kg:";
+        //             float kgPedido;
+        //             cin >> kgPedido;
+        //             cout << "Tipo de fruta: A) Manzana B) Banana C) Naranja";
+        //             char tipoDeFruta;
+        //             cin >> tipoDeFruta;
+        //             switch (tipoDeFruta)
+        //             {
+        //             case 'A':
+        //                 RetailOrder *orden = new RetailOrder(kgPedido, *cliente, FruitType::APPLE);
+        //                 admin->addRetailOrder(orden);
+        //                 break;
+        //             case 'B':
+        //                 RetailOrder *orden1 = new RetailOrder(kgPedido, *cliente, FruitType::BANANA);
+        //                 admin->addRetailOrder(orden1);
+        //                 break;
+        //             case 'C':
+        //                 RetailOrder *orden2 = new RetailOrder(kgPedido, *cliente, FruitType::ORANGE);
+        //                 admin->addRetailOrder(orden2);
+        //                 break;  
+        //             default:
+        //                 cout <<"Opcion invalida"<<endl;
+        //                 break;
+        //             }
+        //         break;
+        //         case 'B':
+        //             cout << "Cantidad de cajones:";
+        //             int cajonPedido;
+        //             cin >> cajonPedido;
+        //             cout << "Tipo de fruta: A) Manzana B) Banana C) Naranja";
+        //             char tipoDeFruta1;
+        //             cin >> tipoDeFruta1;
+        //             switch (tipoDeFruta1)
+        //             {
+        //             case 'A':
+        //                 WholesaleOrder *order = new WholesaleOrder(cajonPedido, *cliente, FruitType::APPLE);
+        //                 admin->addWholesaleOrder(order);
+        //                 break;
+        //             case 'B':
+        //                 WholesaleOrder *order1 = new WholesaleOrder(cajonPedido, *cliente, FruitType::APPLE);
+        //                 admin->addWholesaleOrder(order1);
+        //                 break;
+        //             case 'C':
+        //                 WholesaleOrder *order2 = new WholesaleOrder(cajonPedido, *cliente, FruitType::APPLE);
+        //                 admin->addWholesaleOrder(order2);
+        //                 break;  
+        //             default:
+        //                 cout <<"Opcion invalida"<<endl;
+        //                 break;
+        //             }
+        //         break;
+        //         default:
+        //             cout <<"Opcion invalida"<<endl;
+        //             break;
+        //         }
+        //     break;
+        //     case 'B':
+        //         cout<<"Ingrese la prioridad que quiere tener para realizar el pedido"<<endl<<"A) Minorista"<<endl<<"B) Mayorista"<<endl<<"C) Volver"<<endl;
+        //         char option5;
+        //         cin >> option5;
+        //         switch (option5)
+        //         {
+        //         case 'A':
+        //             admin->makeOrder(true);
+        //            break;
+        //         case 'B':
+        //             admin->makeOrder(false);
+        //             break;
+        //         case 'C':
+        //             break;
+        //         default:
+        //             cout <<"Opcion invalida"<<endl;
+        //             break;
+        //         }
+        //         break;
+        //     case 'C':
+        //         break;
+        //     default:
+        //         cout <<"Opcion invalida"<<endl;
+        //         break;
+        //     }
+        // break;
+        case 'C':
+            cout<<"Que desea imprimir?" << endl << "A) Estado del Deposito"<<endl<<"B) Estado de las ordenes"<<endl;
+            char option6;
+            cin >> option6;
+            switch (option6)
+            {
+            case 'A':
+                deposito->imprimirWarehouse();
+                break;
+            case 'B':
+                admin->imprimir();
+                break;
+            default:
+                cout <<"Opcion invalida"<<endl;
+                break;
+            }
+        break;
+        default:
+            exit(0);
+            break;
+        }
+    }
 }
