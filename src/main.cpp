@@ -16,12 +16,14 @@ int main( int argc, char *argv[])
     OrderManager *admin = new OrderManager(*deposito);
 
     cout << "\n¡Bienvenido a la verdulería de Vicente!\n" <<endl;
+
     while (true)
     {
         cout <<endl<< "A donde te quieres dirigir?"<< endl<< "A) Deposito"<<endl<<"B) Caja"<<endl<<"C) Impresiones"<<endl;
         char option;
         cin >> option;
         cout <<endl;
+        
         switch (option)
         {
         case 'A':
@@ -106,6 +108,7 @@ void entrarCaja(OrderManager *admin){
     char option4;
     cin >> option4;
     cout <<endl;
+
     switch (option4)
     {
     case 'A':
@@ -116,6 +119,7 @@ void entrarCaja(OrderManager *admin){
         char option5;
         cin >> option5;
         cout <<endl;
+        
         switch (option5)
         {
         case 'A':
@@ -138,6 +142,7 @@ void ingresarPedido(OrderManager *admin){
     cout<<"Ingrese la informacion del pedido"<<endl<<"Nombre del cliente: ";
     cin>>nombre;
     cout <<endl;
+
     Client *cliente = new Client(nombre);
 
     cout << "Tipo de fruta: A) Manzana B) Banana C) Naranja"<<endl;
@@ -150,11 +155,13 @@ void ingresarPedido(OrderManager *admin){
     char tipoDePedido;
     cin >> tipoDePedido;
     cout <<endl;
+
     if(tipoDePedido=='A'){
         cout << "Cantidad de fruta en kg:";
         float kgPedido;
         cin >> kgPedido; 
         cout <<endl;
+
         RetailOrder *orden = new RetailOrder(kgPedido, *cliente, tipoFruta);
         admin->addRetailOrder(orden);
     }
@@ -163,6 +170,7 @@ void ingresarPedido(OrderManager *admin){
         int cajonPedido;
         cin >> cajonPedido;
         cout <<endl;
+
         WholesaleOrder *order = new WholesaleOrder(cajonPedido, *cliente, tipoFruta);
         admin->addWholesaleOrder(order);
     }
